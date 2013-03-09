@@ -19,6 +19,7 @@ class UsersToSubjects(models.Model):
     user_id = models.ForeignKey(User)
     role_choices = (
             ('teacher', 'Teacher'),
+            ('assistant', 'Assistant'),
             ('student', 'Student'),
             )
     role = models.CharField(max_length = 15,
