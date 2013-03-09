@@ -40,13 +40,14 @@ class UsersToSubjects(models.Model):
 class Submission(models.Model):
     student_id = models.ForeignKey(User, related_name='submissions')
     assignment_id = models.ForeignKey(Assignment, related_name='assignments')
-    uploaded_at = models.DateTimeField()
+    uploaded_at = models.DateTimeField(auto_now_add=True) # This is a timestamp
     graded = models.BooleanField(default=False)
     comment_count = models.IntegerField()
     content = models.FileField(upload_to='vmc_backend/files')
 
     def __str__(self):
-        return str(self.student_id) + "-" + str(self.assignment_id) + "-" + str(self.uploaded_at)
+        return str(self.student_id) + "-" + str(self.assignment_id) 
+            + "-" + str(self.uploaded_at)
 
 class SubmissionComment(models.Model):
     submission_id = models.ForeignKey(Submission)
