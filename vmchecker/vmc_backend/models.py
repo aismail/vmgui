@@ -40,4 +40,3 @@ class SubmissionComment(models.Model):
     line_no = models.IntegerField()
     comment_no = models.IntegerField()
     comment = models.TextField()
-
