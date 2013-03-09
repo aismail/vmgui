@@ -52,7 +52,7 @@ class Submission(models.Model):
 class SubmissionComment(models.Model):
     submission_id = models.ForeignKey(Submission)
     filename = models.CharField(max_length=256, blank=True)
-    line_no = models.IntegerField(blank=True)
+    line_no = models.IntegerField(null=True, blank=True)
     comment_no = models.IntegerField()
     comment = models.TextField()
 
