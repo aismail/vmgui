@@ -31,7 +31,7 @@ class Submission(models.Model):
     uploaded_at = models.DateTimeField()
     graded = models.BooleanField()
     comment_count = models.IntegerField()
-    content = models.BinaryField()
+    content = models.FileField(upload_to='files')
 
 class SubmissionComment(models.Model):
     submission_id = models.ForeignKey(Submission)
@@ -39,5 +39,4 @@ class SubmissionComment(models.Model):
     line_no = models.IntegerField()
     comment_no = models.IntegerField()
     comment = models.TextField()
-
 
