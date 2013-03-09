@@ -9,6 +9,6 @@ class Subject(models.Model):
 
 class Assignment(models.Model):
     subject_id = models.ForeignKey(Subject)
-    text = models.CharField(max_length=2000)
+    text = models.TextField()
     deadline = models.DateField()
     attachments = models.URLField()
