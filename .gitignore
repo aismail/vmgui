@@ -36,3 +36,6 @@ nosetests.xml
 
 # Database
 vmc_backend/vmc_db
+
+# Uploaded files
+vmc_backend/files/
