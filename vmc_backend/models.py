@@ -40,7 +40,7 @@ class Submission(models.Model):
     student_id = models.ForeignKey(User, related_name='submissions')
     assignment_id = models.ForeignKey(Assignment, related_name='assignments')
     uploaded_at = models.DateTimeField()
-    graded = models.BooleanField()
+    graded = models.BooleanField(default=False)
     comment_count = models.IntegerField()
     content = models.FileField(upload_to='files')
 
