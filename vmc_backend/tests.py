@@ -11,9 +11,10 @@ import logging
 from models import Subject, Assignment, UsersToSubjects, Submission,\
     SubmissionComment
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
+class TestSubmissionModel(TestCase):
+    def test_graded(self):
         """
-        Tests that 1 + 1 always equals 2.
+            Tests that submission.graded is false by default
         """
-        self.assertEqual(1 + 1, 2)
+        sub = Submission()
+        self.assertEqual(sub.graded, False)
