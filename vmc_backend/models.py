@@ -46,8 +46,8 @@ class Submission(models.Model):
     content = models.FileField(upload_to='vmc_backend/files')
 
     def __str__(self):
-        return str(self.student_id) + "-" + str(self.assignment_id) 
-            + "-" + str(self.uploaded_at)
+        return str(self.student_id) + "-" + str(self.assignment_id) + \
+            "-" + str(self.uploaded_at)
 
 class SubmissionComment(models.Model):
     submission_id = models.ForeignKey(Submission)
