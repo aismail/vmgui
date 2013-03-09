@@ -14,10 +14,16 @@ class Assignment(models.Model):
     attachments = models.URLField()
 
 class UsersToSubjects(models.Model):
+    unique_together = ("subject_id", "user_id")
     subject_id = models.ForeignKey(Subject)
     user_id = models.ForeignKey(User)
-    role = models.CharField(max_length = 15)
-    unique_together = ("subject_id", "user_id")
+    role_choices = (
+            ('teacher', 'Teacher'),
+            ('student', 'Student'),
+            )
+    role = models.CharField(max_length = 15,
+                            choices = role_choices,
+                            default = 'student')
 
 class Submission(models.Model):
     student_id = models.ForeignKey(User, related_name='submissions')
