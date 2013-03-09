@@ -19,3 +19,9 @@ class UsersToSubjects(models.Model):
     role = models.CharField(max_length = 15)
     unique_together = ("subject_id", "user_id")
 
+class SubmissionComment(models.Model):
+    submission_id = models.ForeignKey(Submission)
+    filename = models.CharField(max_length=256)
+    line_no = models.IntegerField()
+    comment_no = models.IntegerField()
+    comment = models.TextField()
