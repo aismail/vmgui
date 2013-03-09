@@ -5,7 +5,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
     link = models.URLField(max_length=200)
-    contact_person_email = models.EmailField()
+    
 
 class Assignment(models.Model):
     subject_id = models.ForeignKey(Subject)
@@ -19,9 +19,19 @@ class UsersToSubjects(models.Model):
     role = models.CharField(max_length = 15)
     unique_together = ("subject_id", "user_id")
 
+class Submission(models.Model):
+    student_id = models.ForeignKey(User, related_name='submissions')
+    assignment_id = models.ForeignKey(Assignment, related_name='assignments')
+    uploaded_at = models.DateTimeField()
+    graded = models.BooleanField()
+    comment_count = models.IntegerField()
+    content = BinaryField()
+
 class SubmissionComment(models.Model):
     submission_id = models.ForeignKey(Submission)
     filename = models.CharField(max_length=256)
     line_no = models.IntegerField()
     comment_no = models.IntegerField()
     comment = models.TextField()
+
+
