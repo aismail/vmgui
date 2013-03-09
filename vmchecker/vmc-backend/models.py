@@ -12,3 +12,10 @@ class Assignment(models.Model):
     text = models.TextField()
     deadline = models.DateField()
     attachments = models.URLField()
+
+class UsersToSubjects(models.Model):
+    subject_id = models.ForeignKey(Subject)
+    user_id = models.ForeignKey(User)
+    role = models.CharField(max_length = 15)
+    unique_together = ("subject_id", "user_id")
+
