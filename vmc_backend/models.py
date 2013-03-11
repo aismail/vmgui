@@ -21,6 +21,7 @@ class Assignment(models.Model):
     def __str__(self):
         return self.name
 
+
 class UsersToSubjects(models.Model):
     unique_together = ("subject_id", "user_id")
     subject_id = models.ForeignKey(Subject)
