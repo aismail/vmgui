@@ -50,3 +50,11 @@ class AssignmentModelTest(TestCase):
         testassignment.save()
         testsubject.delete()
         testassignment.delete()
+
+class TestSubjectModel(TestCase):
+    # checks if description, link, contact_person_email fields are optional
+    def test_if_optional(self):
+        subject = Subject(name='Test name for subject')
+        subject.save()
+        subject.delete()
+
