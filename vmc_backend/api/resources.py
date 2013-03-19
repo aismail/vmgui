@@ -5,7 +5,7 @@ from vmc_backend.models import Assignment, Subject, Submission
 class SubmissionResource(ModelResource):
     class Meta:
         queryset = Submission.objects.all()
-        allowed_methods = ['get']
+        allowed_methods = ['get', 'post']
 
 
 class AssignmentResource(ModelResource):
