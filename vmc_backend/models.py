@@ -46,7 +46,7 @@ class Submission(models.Model):
     # This is a timestamp
     uploaded_at = models.DateTimeField(auto_now_add=True)
     graded = models.BooleanField(default=False)
-    content = models.FileField(upload_to='vmc_backend/files')
+    content = models.FileField(upload_to='uploads')
 
     def __str__(self):
         return str(self.student_id) + "-" + str(self.assignment_id) + \
