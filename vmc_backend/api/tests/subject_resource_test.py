@@ -5,7 +5,7 @@ from vmc_backend.factories import SubjectFactory
 class SubjectResourceTest(ResourceTestCase):
     def setUp(self):
         super(SubjectResourceTest, self).setUp()
-        
+
         self.subject_1 = SubjectFactory()
         self.subject_2 = SubjectFactory()
 
@@ -16,7 +16,7 @@ class SubjectResourceTest(ResourceTestCase):
         self.assertValidJSONResponse(resp)
 
     def test_get_list_json(self):
-        resp = self.api_client.get('/api/v1/entries/', format='json')
+        resp = self.api_client.get('/api/v1/subject/', format='json')
         self.assertValidJSONResponse(resp)
 
         self.assertEqual(len(self.deserialize(resp)['objects']), 2)

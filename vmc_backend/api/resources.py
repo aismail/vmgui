@@ -1,6 +1,6 @@
 """ This file contains tastypie resources for all models in vmc_backend """
 from tastypie.resources import ModelResource
-from vmc_backend.models import Assignment, Subject, Submission
+from vmc_backend.models import Assignment, Subject, Submission, UsersToSubjects
 
 class SubmissionResource(ModelResource):
     class Meta:
@@ -17,4 +17,9 @@ class AssignmentResource(ModelResource):
 class SubjectResource(ModelResource):
     class Meta:
         queryset = Subject.objects.all()
+        allowed_methods = ['get']
+
+class UsersToSubjectsResource(ModelResource):
+    class Meta:
+        queryset = UsersToSubjects.objects.all()
         allowed_methods = ['get']
