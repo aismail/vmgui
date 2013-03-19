@@ -16,7 +16,7 @@ class SubjectResourceTest(ResourceTestCase):
         self.assertValidJSONResponse(resp)
 
     def test_get_list_json(self):
-        resp = self.api_client.get('/api/v1/entries/', format='json')
+        resp = self.api_client.get('/api/v1/subject/', format='json')
         self.assertValidJSONResponse(resp)
 
         self.assertEqual(len(self.deserialize(resp)['objects']), 2)
