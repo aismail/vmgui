@@ -2,10 +2,17 @@ import datetime
 from tastypie.test import ResourceTestCase
 from vmc_backend.api.resources import SubmissionResource
 from vmc_backend.factories import SubmissionFactory
+<<<<<<< HEAD
 from vmc_backend.models import Submission
 from django.contrib.auth.models import User
 from vmc_backend.factories import AssignmentFactory
 from vmc_backend.factories import UserFactory
+
+from vmc_backend.factories import AssignmentFactory
+from vmc_backend.factories import UserFactory
+from vmc_backend.models import Submission
+from django.contrib.auth.models import User
+>>>>>>> f/#46-add-authentication-to-resources
 
 
 class SubmissionResourceTest(ResourceTestCase):
