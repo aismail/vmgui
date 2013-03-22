@@ -6,23 +6,27 @@ from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 
 class SubmissionResource(ModelResource):
-    student = fields.IntegerField(attribute='sudent_id')
-    #assignment = fields.IntegerField(attribute= 'assignment_id')
+    student_id = fields.IntegerField(attribute='student__id')
+    assignment_id = fields.IntegerField(attribute='assignment__id')
+
     class Meta:
         queryset = Submission.objects.all()
         allowed_methods = ['get', 'post']
         authentication = Authentication()
         authorization = Authorization()
+
+"""
     def hydrate(self, bundle):
-        #bundle.data['student_id']=self.request.POST['student']
+        # bundle.data['student_id']=self.request.POST['student']
         if not bundle.obj.pk:
-            bundle.obj.student_id=self.student
-        return bundle
-    def dehydrate(self, bundle):
-        #from nose.tools import set_trace; set_trace()
-        bundle.data['student_id']=self.student
+            bundle.obj.student_id = self.student
         return bundle
 
+    def dehydrate(self, bundle):
+        # from nose.tools import set_trace; set_trace()
+        bundle.data['student_id'] = self.student
+        return bundle
+"""
 
 class AssignmentResource(ModelResource):
     class Meta:
