@@ -45,7 +45,7 @@ class AssignmentModelTest(TestCase):
                               link="http://www.google.ro/")
         testsubject.save()
         now = datetime.datetime.utcnow().replace(tzinfo=utc)
-        testassignment = Assignment(subject_id=testsubject, name="test",
+        testassignment = Assignment(subject=testsubject, name="test",
                                     text="asda", deadline=now)
         testassignment.save()
         testsubject.delete()
