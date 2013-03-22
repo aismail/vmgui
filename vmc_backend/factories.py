@@ -27,7 +27,7 @@ class SubjectFactory(factory.Factory):
 
 class AssignmentFactory(factory.Factory):
     FACTORY_FOR = models.Assignment
-    subject_id = factory.SubFactory(SubjectFactory)
+    subject = factory.SubFactory(SubjectFactory)
     name = factory.LazyAttribute(lambda x: '%030x' %
                                  random.randrange(256 ** 15))
     text = factory.LazyAttribute(lambda x: '%055x' %
@@ -39,23 +39,23 @@ class AssignmentFactory(factory.Factory):
 
 class UsersToSubjectsFactory(factory.Factory):
     FACTORY_FOR = models.UsersToSubjects
-    subject_id = factory.SubFactory(SubjectFactory)
-    user_id = factory.SubFactory(UserFactory)
+    subject = factory.SubFactory(SubjectFactory)
+    user = factory.SubFactory(UserFactory)
     role = choice(['teacher', 'student', 'assistant'])
 
 
 class SubmissionFactory(factory.Factory):
     FACTORY_FOR = models.Submission
-    student_id = factory.SubFactory(UserFactory)
-    assignment_id = factory.SubFactory(AssignmentFactory)
+    student = factory.SubFactory(UserFactory)
+    assignment = factory.SubFactory(AssignmentFactory)
     uploaded_at = datetime.datetime.now()
     graded = choice([True, False])
-    #TODO random filefield
+    # TODO random filefield
 
 
 class SubmissionCommentFactory(factory.Factory):
     FACTORY_FOR = models.SubmissionComment
-    submission_id = factory.SubFactory(SubmissionFactory)
+    submission = factory.SubFactory(SubmissionFactory)
     filename = factory.LazyAttribute(lambda x: '%030x' %
                                      random.randrange(256 ** 15))
     line_no = randint(1, 100)
