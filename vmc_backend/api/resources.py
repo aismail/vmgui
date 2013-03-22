@@ -6,8 +6,8 @@ from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 
 class SubmissionResource(ModelResource):
-    student_id = fields.IntegerField(attribute='student__id')
-    assignment_id = fields.IntegerField(attribute='assignment__id')
+    student_id = fields.IntegerField(attribute='student_id')
+    assignment_id = fields.IntegerField(attribute='assignment_id')
 
     class Meta:
         queryset = Submission.objects.all()
