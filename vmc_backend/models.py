@@ -13,7 +13,7 @@ class Subject(models.Model):
 
 
 class Assignment(models.Model):
-    subject_id = models.ForeignKey(Subject)
+    subject = models.ForeignKey(Subject)
     name = models.CharField(max_length=30)
     text = models.TextField()
     deadline = models.DateTimeField()
@@ -25,8 +25,8 @@ class Assignment(models.Model):
 
 class UsersToSubjects(models.Model):
     unique_together = ("subject_id", "user_id")
-    subject_id = models.ForeignKey(Subject)
-    user_id = models.ForeignKey(User)
+    subject = models.ForeignKey(Subject)
+    user = models.ForeignKey(User)
     role_choices = (
             ('teacher', 'Teacher'),
             ('assistant', 'Assistant'),
@@ -37,27 +37,27 @@ class UsersToSubjects(models.Model):
                             default='student')
 
     def __str__(self):
-        return str(self.subject_id) + "-" + str(self.user_id)
+        return str(self.subject.pk) + "-" + str(self.user.pk)
 
 
 class Submission(models.Model):
-    student_id = models.ForeignKey(User, related_name='submissions')
-    assignment_id = models.ForeignKey(Assignment, related_name='assignments')
+    student = models.ForeignKey(User, related_name='submissions')
+    assignment = models.ForeignKey(Assignment, related_name='assignments')
     # This is a timestamp
     uploaded_at = models.DateTimeField(auto_now_add=True)
     graded = models.BooleanField(default=False)
     content = models.FileField(upload_to='vmc_backend/files')
 
     def __str__(self):
-        return str(self.student_id) + "-" + str(self.assignment_id) + \
+        return str(self.student.pk) + "-" + str(self.assignment.pk) + \
             "-" + str(self.uploaded_at)
 
 
 class SubmissionComment(models.Model):
-    submission_id = models.ForeignKey(Submission, related_name='comments')
+    submission = models.ForeignKey(Submission, related_name='comments')
     filename = models.CharField(max_length=256, blank=True)
     line_no = models.IntegerField(null=True, blank=True)
     comment = models.TextField()
 
     def __str__(self):
-        return str(self.submission_id) + "-" + str(self.comment_no)
+        return str(self.submission.pk) + "-" + str(self.comment_no)
