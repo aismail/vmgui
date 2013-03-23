@@ -12,7 +12,6 @@ class SubmissionResource(ModelResource):
     class Meta:
         filtering = {
             'assignment_id': ALL,
-            'id': ALL
         }
         queryset = Submission.objects.all()
         allowed_methods = ['get', 'post']
