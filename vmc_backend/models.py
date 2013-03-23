@@ -60,4 +60,4 @@ class SubmissionComment(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return str(self.submission.pk) + "-" + str(self.comment_no)
+        return str(self.submission.pk) + "-" + str(self.comment)
