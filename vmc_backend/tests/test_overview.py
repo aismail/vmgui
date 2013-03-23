@@ -3,6 +3,8 @@ This file demonstrates writing tests using the unittest module. These will pass
 when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
+
+TODO: This file has to be split UP for every file. test_submission.py
 """
 import datetime
 import factory
