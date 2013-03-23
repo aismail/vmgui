@@ -1,6 +1,6 @@
 """ This file contains tastypie resources for all models in vmc_backend """
 from tastypie import fields
-from tastypie.resources import ModelResource, ALL_WITH_RELATIONS, ALL
+from tastypie.resources import ModelResource, ALL
 from vmc_backend.models import Assignment, Subject, Submission, UsersToSubjects
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
@@ -10,6 +10,9 @@ class SubmissionResource(ModelResource):
     assignment_id = fields.IntegerField(attribute='assignment_id')
 
     class Meta:
+        filtering = {
+            'assignment_id': ALL,
+        }
         queryset = Submission.objects.all()
         allowed_methods = ['get', 'post']
         authentication = Authentication()
