@@ -49,3 +49,10 @@ class SubmissionResourceTest(ResourceTestCase):
                              format='json', data=self.post_data))
         # Verify a new one has been added.
         self.assertEqual(Submission.objects.count(), 3)
+
+    def test_filtering_by_assignment(self):
+        """ Asserts if filtering by assignment returns right objects
+        """
+        resp = self.api_client.get('/api/v1/submission/?assignment_id={0}'.
+               format(self.subm1.assignment_id), format='json')
+        self.assertEqual(len(self.deserialize(resp)['objects']), 1)
