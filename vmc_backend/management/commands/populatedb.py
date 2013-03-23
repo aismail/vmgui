@@ -32,7 +32,7 @@ class Command(BaseCommand):
 
     
     def generateData(): 
-      for x in range(0, 20):
+      for x in range(0, 10):
         SubjectFactory.create()
         AssignmentFactory.create()
         UsersToSubjectsFactory.create()
