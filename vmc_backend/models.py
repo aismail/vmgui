@@ -1,12 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField(blank=True)
-    link = models.URLField(max_length=200, blank=True)
-    contact_person_email = models.EmailField(blank=True)
+    """ Subject Model, referring to a course, for example.
+
+    Fields: name, description, link
+    Methods: contact_emails
+
+    Example name: 'Sisteme de Operare'
+            link: 'http://ocw.cs.pub.ro/courses/so'
+    """
+    name = models.CharField(max_length=30,
+            help_text='Full name of the subject, such as "Sisteme de Operare"',
+            unique=True,
+            validators=[MinLengthValidator(3)])
+    description = models.TextField(blank=True,
+            help_text='Descriptive information regarding the subject; \
+                    this field is optional')
+    link = models.URLField(max_length=200,
+            blank=True,
+            help_text='An URL to additional information about the subject')
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -35,6 +53,7 @@ class UsersToSubjects(models.Model):
     role = models.CharField(max_length=15,
                             choices=role_choices,
                             default='student')
+    available_for_contact = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.subject.pk) + "-" + str(self.user.pk)
