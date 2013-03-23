@@ -1,7 +1,7 @@
 from nose.tools import eq_, ok_
 
-from forms import SubjectForm
-from tests.base_model_form_test_case import BaseModelFormTestCase
+from vmc_backend.forms import SubjectForm
+from vmc_backend.tests.base_model_form_test_case import BaseModelFormTestCase
 
 class TestSubjectForm(BaseModelFormTestCase):
     
