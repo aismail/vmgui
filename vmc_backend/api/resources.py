@@ -10,6 +10,10 @@ class SubmissionResource(ModelResource):
     assignment_id = fields.IntegerField(attribute='assignment_id')
 
     class Meta:
+        filtering = {
+            'assignment_id': ALL,
+            'id': ALL
+        }
         queryset = Submission.objects.all()
         allowed_methods = ['get', 'post']
         authentication = Authentication()
