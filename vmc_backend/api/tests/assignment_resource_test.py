@@ -1,7 +1,6 @@
-import datetime
-from django.contrib.auth.models import User
+from nose.tools import ok_, eq_
 from tastypie.test import ResourceTestCase
-from vmc_backend.models import Assignment
+
 from vmc_backend.factories import AssignmentFactory
 
 class AssignmentResourceTest(ResourceTestCase):
@@ -21,4 +20,12 @@ class AssignmentResourceTest(ResourceTestCase):
         self.assertValidJSONResponse(resp)
         self.assertEqual(len(self.deserialize(resp)['objects']), 2)
         self.assertEqual(self.deserialize(resp)['objects'][1]['id'], self.as2.id)
+        
+    def test_filter_by_subject(self):
+        """ Assert assignments are filtered by a certain subject
+        """
+        # Create two assignments with separate subjects
+        ok_(self.as1.subject_id, self.as2.subject_id)
+        
+        
 
