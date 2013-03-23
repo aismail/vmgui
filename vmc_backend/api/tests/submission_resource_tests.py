@@ -56,3 +56,7 @@ class SubmissionResourceTest(ResourceTestCase):
         resp = self.api_client.get('/api/v1/submission/?assignment_id={0}'.
                format(self.subm1.assignment_id), format='json')
         self.assertEqual(len(self.deserialize(resp)['objects']), 1)
+
+        #Assert that the id of returned submission is the correct one
+        self.assertEqual(self.deserialize(resp)['objects'][0]['id'],
+                         self.subm1.pk)
