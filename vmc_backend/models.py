@@ -1,9 +1,10 @@
 from django.db import models
+from vmc_backend.core.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 
 
-class Subject(models.Model):
+class Subject(BaseModel):
     """ Subject Model, referring to a course, for example.
 
     Fields: name, description, link
@@ -30,7 +31,7 @@ class Subject(models.Model):
         return self.name
 
 
-class Assignment(models.Model):
+class Assignment(BaseModel):
     subject = models.ForeignKey(Subject)
     name = models.CharField(max_length=30)
     text = models.TextField()
@@ -41,7 +42,7 @@ class Assignment(models.Model):
         return self.name
 
 
-class UsersToSubjects(models.Model):
+class UsersToSubjects(BaseModel):
     unique_together = ("subject_id", "user_id")
     subject = models.ForeignKey(Subject)
     user = models.ForeignKey(User)
@@ -59,7 +60,7 @@ class UsersToSubjects(models.Model):
         return str(self.subject.pk) + "-" + str(self.user.pk)
 
 
-class Submission(models.Model):
+class Submission(BaseModel):
     student = models.ForeignKey(User, related_name='submissions')
     assignment = models.ForeignKey(Assignment, related_name='assignments')
     # This is a timestamp
@@ -72,7 +73,7 @@ class Submission(models.Model):
             "-" + str(self.uploaded_at)
 
 
-class SubmissionComment(models.Model):
+class SubmissionComment(BaseModel):
     submission = models.ForeignKey(Submission, related_name='comments')
     filename = models.CharField(max_length=256, blank=True)
     line_no = models.IntegerField(null=True, blank=True)
