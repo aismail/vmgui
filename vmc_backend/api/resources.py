@@ -39,6 +39,7 @@ class SubjectResource(ModelResource):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
 
+
 class UsersToSubjectsResource(ModelResource):
     subject_id = fields.IntegerField(attribute='subject_id')
     user_id = fields.IntegerField(attribute='user_id')
