@@ -76,6 +76,9 @@ class Submission(BaseModel):
     content = models.FileField(upload_to='uploads',
             help_text="The archive containing the files of the submission")
 
+    class Meta:
+        ordering = ['assignment', 'student', 'uploaded_at']
+
     def __str__(self):
         return str(self.student.pk) + "-" + str(self.assignment.pk) + \
             "-" + str(self.uploaded_at)
