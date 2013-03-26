@@ -13,18 +13,18 @@ class TestSubmissionForm(BaseModelFormTestCase):
     def test_assignment_exists(self):
         ass = AssignmentFactory()
         subm = SubmissionFactory(assignment=ass)
-        ass.delete()
-
         data = {'student': subm.student.pk,
                 'assignment': subm.assignment.pk,
                 'uploaded_at': subm.uploaded_at,
                 'graded': subm.graded,
                 'content': subm.content,
                 }
-        with self.assertRaises(Assignment.DoesNotExist):
-            from nose.tools import set_trace; set_trace()
-            form = SubmissionForm(data)
-            form.full_clean()
+        ass.delete()
+        form = SubmissionForm(data)
+        form.is_valid()
+        self.assertTrue(form._errors.has_key('assignment') and
+                (form._errors['assignment'].pop() ==
+    'Select a valid choice. That choice is not one of the available choices.'))
 
     def test_student_exists(self):
         stud = UserFactory()
