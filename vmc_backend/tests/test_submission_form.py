@@ -21,4 +21,4 @@ class TestSubmissionForm(BaseModelFormTestCase):
         subj1 = SubjectFactory()
         ass = AssignmentFactory(subject=subj1)
         subm = SubmissionFactory(student=stud1, assignment=ass)
-        self.assertRaises(ValidationError, form = SubmissionForm(subm))
+        self.assertRaises(ValidationError,SubmissionForm,subm)
