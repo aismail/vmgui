@@ -7,14 +7,6 @@ from vmc_backend.models import Assignment
 
 
 class TestSubmissionForm(BaseModelFormTestCase):
-
-    def test_form_can_be_instantiated(self):
-
-        subm = SubmissionFactory()
-        form = SubmissionForm(subm)
-        eq_(form.data, {})
-        from nose.tools import set_trace; set_trace()
-
     def test_assignment_exists(self):
 
         ass = AssignmentFactory()
