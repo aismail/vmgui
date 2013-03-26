@@ -14,8 +14,7 @@ class TestSubmissionForm(BaseModelFormTestCase):
         ass = AssignmentFactory()
         subm = SubmissionFactory(assignment=ass)
         ass.delete()
-        form = SubmissionForm(subm)
-        self.assertRaises(Assignment.DoesNotExist,form = SubmissionForm(subm))
+        self.assertRaises(Assignment.DoesNotExist, SubmissionForm, subm)
 
     def test_student_is_enrolled_at_the_subject(self):
         stud1 = UserFactory()
