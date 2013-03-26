@@ -10,9 +10,9 @@ class SubmissionForm(BaseModelForm):
 
     def clean(self):
         cleaned_data = super(SubmissionForm, self).clean()
-        ass = cleaned_data.get('assignment')
+        assignment = cleaned_data.get('assignment')
         try:
-            Assignment.objects.get(pk=ass.pk)
+            Assignment.objects.get(pk=assignment.pk)
         except(AttributeError):
             raise ValidationError('Select a valid choice.')
 

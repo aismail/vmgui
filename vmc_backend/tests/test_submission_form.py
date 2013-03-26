@@ -11,15 +11,15 @@ from vmc_backend.models import Assignment
 
 class TestSubmissionForm(BaseModelFormTestCase):
     def test_assignment_exists(self):
-        ass = AssignmentFactory()
-        subm = SubmissionFactory(assignment=ass)
+        assignment = AssignmentFactory()
+        subm = SubmissionFactory(assignment=assignment)
         data = {'student': subm.student.pk,
                 'assignment': subm.assignment.pk,
                 'uploaded_at': subm.uploaded_at,
                 'graded': subm.graded,
                 'content': subm.content,
                 }
-        ass.delete()
+        assignment.delete()
         form = SubmissionForm(data)
         form.is_valid()
         self.assertTrue(form._errors.has_key('assignment') and
@@ -35,6 +35,6 @@ class TestSubmissionForm(BaseModelFormTestCase):
     def test_student_is_enrolled_at_the_subject(self):
         stud1 = UserFactory()
         subj1 = SubjectFactory()
-        ass = AssignmentFactory(subject=subj1)
-        subm = SubmissionFactory(student=stud1, assignment=ass)
+        assignment = AssignmentFactory(subject=subj1)
+        subm = SubmissionFactory(student=stud1, assignment=assignment)
         self.assertRaises(ValidationError,SubmissionForm,subm)
