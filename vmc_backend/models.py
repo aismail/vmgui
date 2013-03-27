@@ -47,6 +47,8 @@ class Assignment(BaseModel):
             blank=True,
             helpt_text='An URL to resources needed to solve the assignment. \
                     This field is optional.')
+    class Meta:
+        orgering = ['name']
 
     def __str__(self):
         return self.name
