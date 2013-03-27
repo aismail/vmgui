@@ -37,7 +37,8 @@ class Assignment(BaseModel):
     subject = models.ForeignKey(Subject,
             help_text='The subject this assignment is set for')
     name = models.CharField(max_length=30,
-            help_text='Full name of the assignment')
+            help_text='Full name of the assignment',
+            unique=True)
     text = models.TextField(help_text='Description of the assignment')
     deadline = models.DateTimeField(help_text='The date and hour until \
             submissions from students are accepted')
