@@ -8,6 +8,13 @@ from vmc_backend.factories import (SubmissionFactory, AssignmentFactory,
 
 
 class TestSubmissionForm(BaseModelFormTestCase):
+    def setUp(self):
+        super(TestSubmissionForm, self).setUp()
+
+        self.student = UserFactory()
+        self.subject = SubjectFactory()
+        self.assignment = AssignmentFactory()
+
     def test_assignment_exists(self):
         assignment = AssignmentFactory()
         subm = SubmissionFactory(assignment=assignment)
