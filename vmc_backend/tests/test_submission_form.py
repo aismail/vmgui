@@ -23,7 +23,7 @@ class TestSubmissionForm(BaseModelFormTestCase):
         assignment.delete()
         form = SubmissionForm(data)
         form.is_valid()
-        self.assertTrue(form._errors.has_key('assignment') and
+        self.assertTrue((('assignment') in form.errors.keys()) and
                 (form._errors['assignment'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
 
@@ -41,6 +41,5 @@ class TestSubmissionForm(BaseModelFormTestCase):
         assignment = AssignmentFactory(subject=subj1)
         subm = SubmissionFactory(student=stud1, assignment=assignment)
         form = SubmissionForm(data=model_to_dict(subm))
-        from nose.tools import set_trace; set_trace()
-        self.assertTrue((form.errors.has_key('__all__')) and
+        self.assertTrue((('__all__') in form.errors.keys()) and
             form.errors['__all__'].pop() == 'Student not enrolled at this subject')
