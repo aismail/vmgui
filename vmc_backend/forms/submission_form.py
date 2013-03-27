@@ -7,6 +7,7 @@ from vmc_backend.models import Submission, Assignment
 class SubmissionForm(BaseModelForm):
     class Meta:
         model = Submission
+        exclude = ('uploaded_at', )
 
     def clean(self):
         cleaned_data = super(SubmissionForm, self).clean()
