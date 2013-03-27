@@ -43,7 +43,8 @@ class Assignment(BaseModel):
     text = models.TextField(help_text='Description of the assignment')
     deadline = models.DateTimeField(help_text='The date and hour until \
             submissions from students are accepted')
-    attachments = models.URLField(blank=True,
+    attachments = models.URLField(max_length=200,
+            blank=True,
             helpt_text='An URL to resources needed to solve the assignment. \
                     This field is optional.')
 
