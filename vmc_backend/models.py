@@ -32,7 +32,7 @@ class Subject(BaseModel):
 
 
 class Assignment(BaseModel):
-    """ Assignment reffers to a homework set by a teacher for a subject.
+    """ Assignment refers to a homework set by a teacher for a subject.
     """
     subject = models.ForeignKey(Subject,
             help_text='The subject this assignment is set for')
