@@ -19,10 +19,9 @@ class SubmissionForm(BaseModelForm):
             u2s = UsersToSubjects.objects.all().filter(user=stud, subject=subj)
             if not u2s:
                 raise ValidationError('Student not enrolled at this subject')
-        return self.cleaned_data
 
     def clean(self):
         cleaned_data = super(SubmissionForm, self).clean()
-        cleaned_data = self.clean_subject_and_assignment()
+        self.clean_subject_and_assignment()
 
         return cleaned_data
