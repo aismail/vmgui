@@ -10,6 +10,10 @@ class SubmissionForm(BaseModelForm):
         exclude = ('uploaded_at', )
 
     def clean_subject_and_assignment(self):
+        """ Checks if the student is enrolled on the subject of the assignment 
+        he tries to sent a submission for.
+        Raises ValidationError if he is not.
+        """
         if ('student' in self.cleaned_data.keys() and \
             'assignment' in self.cleaned_data.keys()): 
             stud = self.cleaned_data['student']
