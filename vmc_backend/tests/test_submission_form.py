@@ -13,7 +13,6 @@ class TestSubmissionForm(BaseModelFormTestCase):
         subm = SubmissionFactory(assignment=assignment)
         assignment.delete()
         form = SubmissionForm(data=model_to_dict(subm))
-        form.is_valid()
         self.assertTrue((('assignment') in form.errors.keys()) and
                 (form.errors['assignment'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
