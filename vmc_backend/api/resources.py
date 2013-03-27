@@ -42,6 +42,12 @@ class SubjectResource(BaseResource):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
 
+    def dehydrate(self, bundle):
+        contact_list = [ u.user.email for u in \
+            bundle.obj.userstosubjects_set.filter(available_for_contact=True) ]
+        bundle.data['contact_emails'] = contact_list
+        return bundle
+
 
 class UsersToSubjectsResource(BaseResource):
     subject_id = fields.IntegerField(attribute='subject_id')
