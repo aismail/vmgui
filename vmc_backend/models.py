@@ -45,10 +45,10 @@ class Assignment(BaseModel):
             submissions from students are accepted')
     attachments = models.URLField(max_length=200,
             blank=True,
-            helpt_text='An URL to resources needed to solve the assignment. \
+            help_text='An URL to resources needed to solve the assignment. \
                     This field is optional.')
     class Meta:
-        orgering = ['name']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
