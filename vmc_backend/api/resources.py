@@ -48,6 +48,9 @@ class SubjectResource(BaseResource):
         bundle.data['contact_emails'] = contact_list
         return bundle
 
+    def determine_format(self, request):
+        return 'application/json'
+
 
 class UsersToSubjectsResource(BaseResource):
     subject_id = fields.IntegerField(attribute='subject_id')
