@@ -20,6 +20,7 @@ class TestSubmissionForm(BaseModelFormTestCase):
         subm = SubmissionFactory(assignment=assignment1)
         assignment1.delete()
         form = SubmissionForm(data=model_to_dict(subm))
+        self.assertFalse(form.is_valid())
         self.assertTrue((('assignment') in form.errors.keys()) and
                 (form.errors['assignment'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
@@ -29,6 +30,7 @@ class TestSubmissionForm(BaseModelFormTestCase):
         submission = SubmissionFactory(student=student1)
         student1.delete()
         form = SubmissionForm(data=model_to_dict(submission))
+        self.assertFalse(form.is_valid())
         self.assertTrue((('student') in form.errors.keys()) and
                 (form.errors['student'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
@@ -40,5 +42,6 @@ class TestSubmissionForm(BaseModelFormTestCase):
         submission = SubmissionFactory(student=self.student,
                                        assignment=assignment)
         form = SubmissionForm(data=model_to_dict(submission))
+        self.assertFalse(form.is_valid())
         self.assertTrue((('__all__') in form.errors.keys()) and
             form.errors['__all__'].pop() == 'Student not enrolled at this subject')
