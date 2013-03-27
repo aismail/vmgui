@@ -16,9 +16,9 @@ class TestSubmissionForm(BaseModelFormTestCase):
         self.assignment = AssignmentFactory()
 
     def test_assignment_exists(self):
-        assignment = AssignmentFactory()
-        subm = SubmissionFactory(assignment=assignment)
-        assignment.delete()
+        assignment1 = AssignmentFactory()
+        subm = SubmissionFactory(assignment=assignment1)
+        assignment1.delete()
         form = SubmissionForm(data=model_to_dict(subm))
         self.assertTrue((('assignment') in form.errors.keys()) and
                 (form.errors['assignment'].pop() ==
