@@ -1,5 +1,3 @@
-from nose.tools import eq_, ok_, raises
-from django.forms import ValidationError
 from django.contrib.auth.models import User
 from django.forms.models import model_to_dict
 
@@ -7,7 +5,6 @@ from vmc_backend.forms.submission_form import SubmissionForm
 from vmc_backend.tests.base_model_form_test_case import BaseModelFormTestCase
 from vmc_backend.factories import (SubmissionFactory, AssignmentFactory,
                         UserFactory, SubjectFactory, UsersToSubjectsFactory)
-from vmc_backend.models import Assignment, UsersToSubjects
 
 
 class TestSubmissionForm(BaseModelFormTestCase):
