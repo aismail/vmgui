@@ -12,7 +12,6 @@ class SubmissionForm(BaseModelForm):
     def clean_subject_and_assignment(self):
         if ('student' in self.cleaned_data.keys() and \
             'assignment' in self.cleaned_data.keys()): 
-            #from nose.tools import set_trace; set_trace()
             stud = self.cleaned_data['student']
             assignment = self.cleaned_data['assignment']
             subj = assignment.subject
