@@ -21,7 +21,10 @@ class TestSubmissionForm(BaseModelFormTestCase):
         stud = UserFactory()
         subm = SubmissionFactory(student=stud)
         stud.delete()
-        self.assertRaises(User.DoesNotExist, SubmissionForm, subm)
+        form = SubmissionForm(data=model_to_dict(subm))
+        self.assertTrue((('student') in form.errors.keys()) and
+                (form.errors['student'].pop() ==
+    'Select a valid choice. That choice is not one of the available choices.'))
 
     def test_student_is_enrolled_at_the_subject(self):
         stud1 = UserFactory()
