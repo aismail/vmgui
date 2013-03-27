@@ -15,7 +15,7 @@ class TestSubmissionForm(BaseModelFormTestCase):
         form = SubmissionForm(data=model_to_dict(subm))
         form.is_valid()
         self.assertTrue((('assignment') in form.errors.keys()) and
-                (form._errors['assignment'].pop() ==
+                (form.errors['assignment'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
 
     def test_student_exists(self):
