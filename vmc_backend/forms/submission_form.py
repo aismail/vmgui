@@ -1,7 +1,7 @@
 from django.forms import ValidationError
 
 from vmc_backend.core.base_model_form import BaseModelForm
-from vmc_backend.models import Submission, Assignment, UsersToSubjects
+from vmc_backend.models import Submission, UsersToSubjects
 
 
 class SubmissionForm(BaseModelForm):
