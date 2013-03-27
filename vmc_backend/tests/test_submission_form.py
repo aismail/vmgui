@@ -1,12 +1,13 @@
 from nose.tools import eq_, ok_, raises
 from django.forms import ValidationError
 from django.contrib.auth.models import User
+from django.forms.models import model_to_dict
 
 from vmc_backend.forms.submission_form import SubmissionForm
 from vmc_backend.tests.base_model_form_test_case import BaseModelFormTestCase
 from vmc_backend.factories import (SubmissionFactory, AssignmentFactory,
-                        UserFactory, SubjectFactory)
-from vmc_backend.models import Assignment
+                        UserFactory, SubjectFactory, UsersToSubjectsFactory)
+from vmc_backend.models import Assignment, UsersToSubjects
 
 
 class TestSubmissionForm(BaseModelFormTestCase):
@@ -35,6 +36,11 @@ class TestSubmissionForm(BaseModelFormTestCase):
     def test_student_is_enrolled_at_the_subject(self):
         stud1 = UserFactory()
         subj1 = SubjectFactory()
+        subj2 = SubjectFactory()
+        UsersToSubjectsFactory(user=stud1, subject=subj2)
         assignment = AssignmentFactory(subject=subj1)
         subm = SubmissionFactory(student=stud1, assignment=assignment)
-        self.assertRaises(ValidationError,SubmissionForm,subm)
+        form = SubmissionForm(data=model_to_dict(subm))
+        from nose.tools import set_trace; set_trace()
+        self.assertTrue((form.errors.has_key('__all__')) and
+            form.errors['__all__'].pop() == 'Student not enrolled at this subject')
