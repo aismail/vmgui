@@ -25,21 +25,20 @@ class TestSubmissionForm(BaseModelFormTestCase):
     'Select a valid choice. That choice is not one of the available choices.'))
 
     def test_student_exists(self):
-        stud = UserFactory()
-        subm = SubmissionFactory(student=stud)
-        stud.delete()
-        form = SubmissionForm(data=model_to_dict(subm))
+        student1 = UserFactory()
+        submission = SubmissionFactory(student=student1)
+        student1.delete()
+        form = SubmissionForm(data=model_to_dict(submission))
         self.assertTrue((('student') in form.errors.keys()) and
                 (form.errors['student'].pop() ==
     'Select a valid choice. That choice is not one of the available choices.'))
 
     def test_student_is_enrolled_at_the_subject(self):
-        stud1 = UserFactory()
-        subj1 = SubjectFactory()
-        subj2 = SubjectFactory()
-        UsersToSubjectsFactory(user=stud1, subject=subj2)
-        assignment = AssignmentFactory(subject=subj1)
-        subm = SubmissionFactory(student=stud1, assignment=assignment)
-        form = SubmissionForm(data=model_to_dict(subm))
+        subject2 = SubjectFactory()
+        UsersToSubjectsFactory(user=self.student, subject=subject2)
+        assignment = AssignmentFactory(subject=self.subject)
+        submission = SubmissionFactory(student=self.student,
+                                       assignment=assignment)
+        form = SubmissionForm(data=model_to_dict(submission))
         self.assertTrue((('__all__') in form.errors.keys()) and
             form.errors['__all__'].pop() == 'Student not enrolled at this subject')
