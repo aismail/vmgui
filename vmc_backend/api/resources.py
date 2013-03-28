@@ -5,7 +5,6 @@ from vmc_backend.core.base_resource import BaseResource
 from vmc_backend.models import Assignment, Subject, Submission, UsersToSubjects
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
-from tastypie.serializers import Serializer
 
 
 class SubmissionResource(BaseResource):
@@ -42,7 +41,6 @@ class SubjectResource(BaseResource):
     class Meta(BaseResource.Meta):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
-        serializer = Serializer(formats=['json'])
 
     def dehydrate(self, bundle):
         contact_list = [ u.user.email for u in \
