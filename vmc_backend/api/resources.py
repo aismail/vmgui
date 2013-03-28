@@ -40,9 +40,7 @@ class SubjectResource(BaseResource):
         allowed_methods = ['get']
 
     def dehydrate(self, bundle):
-        contact_list = [ u.user.email for u in \
-            bundle.obj.userstosubjects_set.filter(available_for_contact=True) ]
-        bundle.data['contact_emails'] = contact_list
+        bundle.data['contact_emails'] = bundle.obj.contact_email_list()
         return bundle
 
 

@@ -27,6 +27,10 @@ class Subject(BaseModel):
     class Meta:
         ordering = ['name']
 
+    def contact_email_list(self):
+        u2s = self.userstosubjects_set.filter(available_for_contact=True)
+        return [ s.user.email for s in u2s ]
+
     def __str__(self):
         return self.name
 
