@@ -32,9 +32,6 @@ class AssignmentResource(BaseResource):
         queryset = Assignment.objects.all()
         allowed_methods = ['get', 'post']
 
-    def determine_format(self, request):
-        return 'application/json'
-
 
 class SubjectResource(BaseResource):
 
@@ -59,6 +56,3 @@ class UsersToSubjectsResource(BaseResource):
         }
         queryset = UsersToSubjects.objects.all()
         allowed_methods = ['get']
-
-    def determine_format(self, request):
-        return 'application/json'
