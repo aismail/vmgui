@@ -16,10 +16,11 @@ class SubmissionForm(BaseModelForm):
         """
         if ('student' in self.cleaned_data.keys() and \
             'assignment' in self.cleaned_data.keys()): 
-            stud = self.cleaned_data['student']
+            student = self.cleaned_data['student']
             assignment = self.cleaned_data['assignment']
-            subj = assignment.subject
-            u2s = UsersToSubjects.objects.all().filter(user=stud, subject=subj)
+            subject = assignment.subject
+            u2s = UsersToSubjects.objects.all().filter(user=student,
+                    subject=subject)
             if not u2s:
                 raise ValidationError('Student not enrolled at this subject')
 
