@@ -29,6 +29,7 @@ class Command(BaseCommand):
       username="cdl", email="cdl@gmail.com")
       command = changepassword.Command()
       command._get_pass = lambda *args: 'cdl'
+      command.execute("cdl")
 
     
     def generateData(): 
