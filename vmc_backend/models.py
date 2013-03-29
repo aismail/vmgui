@@ -1,29 +1,60 @@
 from django.db import models
+from vmc_backend.core.base_model import BaseModel
 from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator
 
 
-class Subject(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField(blank=True)
-    link = models.URLField(max_length=200, blank=True)
-    contact_person_email = models.EmailField(blank=True)
+class Subject(BaseModel):
+    """ Subject Model, referring to a course, for example.
+
+    Fields: name, description, link
+    Methods: contact_emails
+
+    Example name: 'Sisteme de Operare'
+            link: 'http://ocw.cs.pub.ro/courses/so'
+    """
+    name = models.CharField(max_length=30,
+            help_text='Full name of the subject, such as "Sisteme de Operare"',
+            unique=True,
+            validators=[MinLengthValidator(3)])
+    description = models.TextField(blank=True,
+            help_text='Descriptive information regarding the subject; \
+                    this field is optional')
+    link = models.URLField(max_length=200,
+            blank=True,
+            help_text='An URL to additional information about the subject')
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
 
 
-class Assignment(models.Model):
-    subject = models.ForeignKey(Subject)
-    name = models.CharField(max_length=30)
-    text = models.TextField()
-    deadline = models.DateTimeField()
-    attachments = models.URLField(blank=True)
+class Assignment(BaseModel):
+    """ Assignment refers to a homework set by a teacher for a subject.
+    """
+    subject = models.ForeignKey(Subject,
+            help_text='The subject this assignment is set for')
+    name = models.CharField(max_length=30,
+            help_text='Full name of the assignment',
+            unique=True,
+            validators=[MinLengthValidator(3)])
+    text = models.TextField(help_text='Description of the assignment')
+    deadline = models.DateTimeField(help_text='The date and hour until \
+            submissions from students are accepted')
+    attachments = models.URLField(max_length=200,
+            blank=True,
+            help_text='An URL to resources needed to solve the assignment. \
+                    This field is optional.')
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
 
 
-class UsersToSubjects(models.Model):
+class UsersToSubjects(BaseModel):
     unique_together = ("subject_id", "user_id")
     subject = models.ForeignKey(Subject)
     user = models.ForeignKey(User)
@@ -35,12 +66,13 @@ class UsersToSubjects(models.Model):
     role = models.CharField(max_length=15,
                             choices=role_choices,
                             default='student')
+    available_for_contact = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.subject.pk) + "-" + str(self.user.pk)
 
 
-class Submission(models.Model):
+class Submission(BaseModel):
     student = models.ForeignKey(User, related_name='submissions')
     assignment = models.ForeignKey(Assignment, related_name='assignments')
     # This is a timestamp
@@ -53,7 +85,7 @@ class Submission(models.Model):
             "-" + str(self.uploaded_at)
 
 
-class SubmissionComment(models.Model):
+class SubmissionComment(BaseModel):
     submission = models.ForeignKey(Submission, related_name='comments')
     filename = models.CharField(max_length=256, blank=True)
     line_no = models.IntegerField(null=True, blank=True)

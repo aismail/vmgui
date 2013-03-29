@@ -1,4 +1,0 @@
-factory_boy
-gunicorn
-django-tastypie==0.9.12
-django-nose==1.1

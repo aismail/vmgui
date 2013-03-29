@@ -1,25 +1,30 @@
 """ This file contains tastypie resources for all models in vmc_backend """
 from tastypie import fields
-from tastypie.resources import ModelResource, ALL_WITH_RELATIONS, ALL
+from tastypie.resources import ALL
+from vmc_backend.core.base_resource import BaseResource
 from vmc_backend.models import Assignment, Subject, Submission, UsersToSubjects
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 
-class SubmissionResource(ModelResource):
+
+class SubmissionResource(BaseResource):
     student_id = fields.IntegerField(attribute='student_id')
     assignment_id = fields.IntegerField(attribute='assignment_id')
 
-    class Meta:
+    class Meta(BaseResource.Meta):
+        filtering = {
+            'assignment_id': ALL,
+        }
         queryset = Submission.objects.all()
         allowed_methods = ['get', 'post']
         authentication = Authentication()
         authorization = Authorization()
 
 
-class AssignmentResource(ModelResource):
+class AssignmentResource(BaseResource):
     subject_id = fields.IntegerField(attribute='subject_id')
 
-    class Meta:
+    class Meta(BaseResource.Meta):
         filtering = {
             "subject_id": ALL,
             "id": ALL,
@@ -30,17 +35,19 @@ class AssignmentResource(ModelResource):
     def determine_format(self, request):
         return 'application/json'
 
-class SubjectResource(ModelResource):
 
-    class Meta:
+class SubjectResource(BaseResource):
+
+    class Meta(BaseResource.Meta):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
 
-class UsersToSubjectsResource(ModelResource):
+
+class UsersToSubjectsResource(BaseResource):
     subject_id = fields.IntegerField(attribute='subject_id')
     user_id = fields.IntegerField(attribute='user_id')
 
-    class Meta:
+    class Meta(BaseResource.Meta):
         filtering = {
             "user_id": ALL,
         }

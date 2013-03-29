@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include('vmc_backend.api.urls')),
+    url(r'^uploads/(?P<filename>.*)$', 'vmc_backend.views.retrieve_file')
 )
