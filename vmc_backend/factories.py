@@ -1,10 +1,20 @@
 from . import models
 from django.contrib.auth.models import User
 from django.utils.timezone import utc
+from django.core.files import File
 import factory
 import random
 import datetime
 from random import choice, randint
+
+
+def generateFile(name):
+    path='vmchecker/tmp'
+    file_name = path + str(name) + '.tmp'
+    content_file = open(file_name,'w')
+    content_file.write("Some content")
+    content_file.close()
+    return file_name
 
 
 class UserFactory(factory.Factory):
@@ -50,7 +60,7 @@ class SubmissionFactory(factory.Factory):
     assignment = factory.SubFactory(AssignmentFactory)
     uploaded_at = datetime.datetime.now()
     graded = choice([True, False])
-    # TODO random filefield
+    content = File(open(generateFile(uploaded_at)))
 
 
 class SubmissionCommentFactory(factory.Factory):
