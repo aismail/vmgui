@@ -78,7 +78,7 @@ class Submission(BaseModel):
             help_text="The archive containing the files of the submission")
 
     class Meta:
-        ordering = ['assignment', 'student', 'uploaded_at']
+        ordering = ['-uploaded_at']
 
     def __str__(self):
         return str(self.student.pk) + "-" + str(self.assignment.pk) + \
