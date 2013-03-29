@@ -40,3 +40,12 @@ class TestSubmissionForm(BaseModelFormTestCase):
         form = SubmissionForm(data=model_to_dict(submission))
         self.assertFalse(form.is_valid())
         self.assertTrue(('__all__') in form.errors.keys())
+
+    def test_working_for_correct_data(self):
+        UsersToSubjectsFactory(user=self.student, subject=self.subject)
+        assignment = AssignmentFactory(subject=self.subject)
+        submission = SubmissionFactory(student=self.student,
+                                       assignment=assignment)
+        form = SubmissionForm(data=model_to_dict(submission))
+        self.assertTrue(form.is_valid())
+
