@@ -1,12 +1,11 @@
-from . import models
-from django.contrib.auth.models import User
-from django.utils.timezone import utc
-from django.core.files import File
-import factory
 import random
 import datetime
-from random import choice, randint
+import factory
 
+from django.utils.timezone import utc
+from django.core.files import File
+
+from . import models
 
 def generateFile(name):
     path='vmchecker/tmp'
@@ -51,7 +50,7 @@ class UsersToSubjectsFactory(factory.Factory):
     FACTORY_FOR = models.UsersToSubjects
     subject = factory.SubFactory(SubjectFactory)
     user = factory.SubFactory(UserFactory)
-    role = choice(['teacher', 'student', 'assistant'])
+    role = random.choice(['teacher', 'student', 'assistant'])
 
 
 class SubmissionFactory(factory.Factory):
@@ -59,7 +58,7 @@ class SubmissionFactory(factory.Factory):
     student = factory.SubFactory(UserFactory)
     assignment = factory.SubFactory(AssignmentFactory)
     uploaded_at = datetime.datetime.now()
-    graded = choice([True, False])
+    graded = random.choice([True, False])
     content = File(open(generateFile(uploaded_at)))
 
 
@@ -68,6 +67,6 @@ class SubmissionCommentFactory(factory.Factory):
     submission = factory.SubFactory(SubmissionFactory)
     filename = factory.LazyAttribute(lambda x: '%030x' %
                                      random.randrange(256 ** 15))
-    line_no = randint(1, 100)
+    line_no = random.randint(1, 100)
     comment = factory.LazyAttribute(lambda x: '%030x' %
                                     random.randrange(256 ** 15))
