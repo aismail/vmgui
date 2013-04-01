@@ -1,5 +1,6 @@
 import os
 import factory
+import datetime
 
 from django.core.management.base import BaseCommand
 from django.core import management
@@ -33,29 +34,26 @@ class Command(BaseCommand):
 
     
     def generateData(): 
-      so = Subject(name = "Sisteme de operare", description = "Empty", link = "")
-      sd = Subject(name = "Structuri de date", description = "Empty", link = "")
-      pa = Subject(name = "Proiectarea algoritmilor", description = "Empty", link = "")
-      uso = Subject(name = "USO", description = "Empty", link = "")
-      pl = Subject(name = "Proiectare Logica", description = "Empty", link = "")
-      ma = Subject(name = "Matematica 3", description = "Empty", link = "")
-      ps = Subject(name = "Piersica stricata", description = "Empty", link = "")
-      mg = Subject(name = "Mar gaurit", description = "Empty", link = "")
-      pc = Subject(name = "Programarea calculatoarelor", description = "Empty", link = "")
-      dc = Subject(name = "Distrugerea calculatoarelor", description = "Empty", link = "")
-
-      soa = Assignment(subject = so, name = "Tema1")  
-      sda = Assignment(subject = sd, name = "Tema1")
-      paa = Assignment(subject = pa, name = "Tema1")
-      usoa = Assignment(subject = uso, name = "Tema1")
-      pla = Assignment(subject = pl, name = "Tema1")
-      maa = Assignment(subject = ma, name = "Tema1")
-      psa = Assignment(subject = ps, name = "Tema1")
-      mga = Assignment(subject = mg, name = "Tema1")
-      pca = Assignment(subject = pc, name = "Tema1")
-      dca = Assignment(subject = dc, name = "Tema1")
-    
-
+      so = Subject(name = "Sisteme de operare",
+       description = "Empty", link = "")
+      sd = Subject(name = "Structuri de date",
+       description = "Empty", link = "")
+      pa = Subject(name = "Proiectarea algoritmilor",
+       description = "Empty", link = "")
+      uso = Subject(name = "USO",
+       description = "Empty", link = "")
+      pl = Subject(name = "Proiectare Logica",
+       description = "Empty", link = "")
+      ma = Subject(name = "Matematica 3",
+       description = "Empty", link = "")
+      ps = Subject(name = "Piersica stricata",
+       description = "Empty", link = "")
+      mg = Subject(name = "Mar gaurit",
+       description = "Empty", link = "")
+      pc = Subject(name = "Programarea calculatoarelor",
+       description = "Empty", link = "")
+      dc = Subject(name = "Distrugerea calculatoarelor", 
+        description = "Empty", link = "")
       so.save()
       sd.save()
       pa.save()
@@ -67,16 +65,47 @@ class Command(BaseCommand):
       dc.save()
       mg.save()
 
-      # soa.save()
-      # sda.save()
-      # paa.save()
-      # usoa.save()
-      # pla.save()
-      # maa.save()
-      # psa.save()
-      # pca.save()
-      # dca.save()
-      # mga.save()
+      soa = Assignment(subject = so, name = "SOTema1", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      sda = Assignment(subject = sd, name = "SDTema2", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      paa = Assignment(subject = pa, name = "PATema3", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      usoa = Assignment(subject = uso, name = "USOTema4", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      pla = Assignment(subject = pl, name = "PLTema5", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      maa = Assignment(subject = ma, name = "MATema6", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      psa = Assignment(subject = ps, name = "PSTema7", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      mga = Assignment(subject = mg, name = "MGTema8", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      pca = Assignment(subject = pc, name = "PCTema9", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+      dca = Assignment(subject = dc, name = "DCTema10", text = "", 
+        deadline = datetime.datetime.utcnow().replace(tzinfo=utc),
+         attachments = "")  
+    
+      soa.save()
+      sda.save()
+      paa.save()
+      usoa.save()
+      pla.save()
+      maa.save()
+      psa.save()
+      pca.save()
+      dca.save()
+      mga.save()
               
     deleteDB()
     recreateDB()
