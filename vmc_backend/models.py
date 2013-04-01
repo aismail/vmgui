@@ -1,7 +1,8 @@
 from django.db import models
-from vmc_backend.core.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
+
+from vmc_backend.core.base_model import BaseModel
 
 
 class Subject(BaseModel):
@@ -73,12 +74,23 @@ class UsersToSubjects(BaseModel):
 
 
 class Submission(BaseModel):
-    student = models.ForeignKey(User, related_name='submissions')
-    assignment = models.ForeignKey(Assignment, related_name='assignments')
+    """ Submission model refers to a homework solution sent by a student.
+    """
+
+    student = models.ForeignKey(User, related_name='submissions',
+            help_text="The user who sent the submission")
+    assignment = models.ForeignKey(Assignment, related_name='assignments',
+            help_text="The assignment this submission is sent for")
     # This is a timestamp
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-    graded = models.BooleanField(default=False)
-    content = models.FileField(upload_to='uploads')
+    uploaded_at = models.DateTimeField(auto_now_add=True,
+            help_text="The time when the submission was sent")
+    graded = models.BooleanField(default=False,
+            help_text="Specifies if the teacher graded the submission")
+    content = models.FileField(upload_to='uploads',
+            help_text="The archive containing the files of the submission")
+
+    class Meta:
+        ordering = ['-uploaded_at']
 
     def __str__(self):
         return str(self.student.pk) + "-" + str(self.assignment.pk) + \
