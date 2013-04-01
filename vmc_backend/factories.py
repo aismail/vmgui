@@ -21,8 +21,6 @@ class SubjectFactory(factory.Factory):
     description = factory.LazyAttribute(lambda x: '%055x' %
                                         random.randrange(256 ** 15))
     link = factory.Sequence(lambda n: 'www.numarul{0}emagic.com'.format(n))
-    contact_person_email = factory.Sequence(lambda n:
-                                            'user{0}@gmail.com'.format(n))
 
 
 class AssignmentFactory(factory.Factory):
