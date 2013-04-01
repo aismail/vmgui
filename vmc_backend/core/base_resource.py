@@ -1,5 +1,6 @@
 from tastypie.resources import ModelResource
+from tastypie.serializers import Serializer
 
 class BaseResource(ModelResource):
     class Meta:
-        pass
+        serializer = Serializer(formats=['json'])
