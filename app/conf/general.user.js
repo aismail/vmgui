@@ -24,6 +24,6 @@ var LOG_LEVEL = {
 App.user = {
     FRONTAPI_URL: FRONTAPI.TEST,
     FRONTEND_URL: FRONTAPI.TEST,
-    STATIC_URL: 'http://localhost/ubervu/mozaic',
+    STATIC_URL: 'http://localhost',
     LOG_LEVEL: LOG_LEVEL.ERROR
 };
