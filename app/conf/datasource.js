@@ -1,15 +1,11 @@
 var App = App || {};
 
 App.DataSourceConfig = {
-		channel_types: {
-			'/todos': {
-				type: 'relational',
-				collection: 'todos'
-			},
-      '/news': {
-				type: 'relational',
-				collection: 'news'
-			}
-
-		},
+    channel_types: {
+        '/subjects':{
+                type: 'relational',
+                collection: 'subjects',
+                url: '/api/v1/subject'
+        }
+    }
 };
