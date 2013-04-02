@@ -1,19 +1,17 @@
 import random
 import datetime
 import factory
+from tempfile import NamedTemporaryFile
 
 from django.utils.timezone import utc
 from django.core.files import File
 
 from . import models
 
-def generateFile(name):
-    path='vmchecker/tmp'
-    file_name = path + str(name) + '.tmp'
-    content_file = open(file_name,'w')
-    content_file.write("Some content")
-    content_file.close()
-    return file_name
+def generateFile():
+    new_file = NamedTemporaryFile(delete=False)
+    new_file.write("Some content")
+    return new_file.name
 
 
 class UserFactory(factory.Factory):
@@ -30,8 +28,6 @@ class SubjectFactory(factory.Factory):
     description = factory.LazyAttribute(lambda x: '%055x' %
                                         random.randrange(256 ** 15))
     link = factory.Sequence(lambda n: 'www.numarul{0}emagic.com'.format(n))
-    contact_person_email = factory.Sequence(lambda n:
-                                            'user{0}@gmail.com'.format(n))
 
 
 class AssignmentFactory(factory.Factory):
@@ -59,7 +55,7 @@ class SubmissionFactory(factory.Factory):
     assignment = factory.SubFactory(AssignmentFactory)
     uploaded_at = datetime.datetime.now()
     graded = random.choice([True, False])
-    content = File(open(generateFile(uploaded_at)))
+    content = File(open(generateFile()))
 
 
 class SubmissionCommentFactory(factory.Factory):
