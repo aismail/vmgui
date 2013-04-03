@@ -1,4 +1,5 @@
 from django.forms.models import model_to_dict
+from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 from vmc_backend.forms.submission_form import SubmissionForm
@@ -19,10 +20,10 @@ class TestSubmissionForm(BaseModelFormTestCase):
         assignment1 = AssignmentFactory()
         submission = SubmissionFactory(assignment=assignment1)
         assignment1.delete()
-        data=model_to_dict(submission)
-        file_data={ 'content': SimpleUploadedFile(submission.content.name,
+        data = model_to_dict(submission)
+        file_data = { 'content': SimpleUploadedFile(submission.content.name,
                                                   submission.content.read())}
-        form = SubmissionForm(data,file_data)
+        form = SubmissionForm(data, file_data)
         self.assertFalse(form.is_valid())
         self.assertTrue(('assignment') in form.errors.keys())
 
@@ -30,10 +31,10 @@ class TestSubmissionForm(BaseModelFormTestCase):
         student1 = UserFactory()
         submission = SubmissionFactory(student=student1)
         student1.delete()
-        data=model_to_dict(submission)
-        file_data={ 'content': SimpleUploadedFile(submission.content.name,
+        data = model_to_dict(submission)
+        file_data = { 'content': SimpleUploadedFile(submission.content.name,
                                                   submission.content.read())}
-        form = SubmissionForm(data,file_data)
+        form = SubmissionForm(data, file_data)
         self.assertFalse(form.is_valid())
         self.assertTrue(('student') in form.errors.keys())
 
@@ -43,10 +44,10 @@ class TestSubmissionForm(BaseModelFormTestCase):
         assignment = AssignmentFactory(subject=self.subject)
         submission = SubmissionFactory(student=self.student,
                                        assignment=assignment)
-        data=model_to_dict(submission)
-        file_data={ 'content': SimpleUploadedFile(submission.content.name,
+        data = model_to_dict(submission)
+        file_data = { 'content': SimpleUploadedFile(submission.content.name,
                                                   submission.content.read())}
-        form = SubmissionForm(data,file_data)
+        form = SubmissionForm(data, file_data)
         self.assertFalse(form.is_valid())
         self.assertTrue(('__all__') in form.errors.keys())
 
@@ -55,8 +56,8 @@ class TestSubmissionForm(BaseModelFormTestCase):
         assignment = AssignmentFactory(subject=self.subject)
         submission = SubmissionFactory(student=self.student,
                                        assignment=assignment)
-        data=model_to_dict(submission)
-        file_data={ 'content': SimpleUploadedFile(submission.content.name,
+        data = model_to_dict(submission)
+        file_data = { 'content': SimpleUploadedFile(submission.content.name,
                                                   submission.content.read())}
-        form = SubmissionForm(data,file_data)
+        form = SubmissionForm(data, file_data)
         self.assertTrue(form.is_valid())

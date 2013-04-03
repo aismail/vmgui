@@ -32,15 +32,16 @@ class AssignmentResource(BaseResource):
         queryset = Assignment.objects.all()
         allowed_methods = ['get', 'post']
 
-    def determine_format(self, request):
-        return 'application/json'
-
 
 class SubjectResource(BaseResource):
 
     class Meta(BaseResource.Meta):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
+
+    def dehydrate(self, bundle):
+        bundle.data['contact_emails'] = bundle.obj.contact_email_list()
+        return bundle
 
 
 class UsersToSubjectsResource(BaseResource):
@@ -53,6 +54,3 @@ class UsersToSubjectsResource(BaseResource):
         }
         queryset = UsersToSubjects.objects.all()
         allowed_methods = ['get']
-
-    def determine_format(self, request):
-        return 'application/json'
