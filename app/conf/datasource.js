@@ -5,7 +5,7 @@ App.DataSourceConfig = {
         '/subjects':{
                 type: 'relational',
                 collection: 'subjects',
-                url: App.general.FRONTEND_URL + '/api/v1/subjects/'
+                url: App.general.FRONTEND_URL + '/subjects/'
         }
     }
 };
