@@ -1,3 +1,5 @@
 <h1>Dashboard</h1>
 <div class="mozaic-widget" data-widget="subjects" data-params="{{subjects_params}}"></div>
+<div class="mozaic-widget" data-widget="usertosubject" data-params="{{subjects_params}} ({{usertosubject_params}})"></div>
+
 
