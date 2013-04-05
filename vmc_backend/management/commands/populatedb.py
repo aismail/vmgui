@@ -203,7 +203,5 @@ class Command(BaseCommand):
       comment7.save()
       comment8.save()
 
-    deleteDB()
-    recreateDB()
     generateData()
   
