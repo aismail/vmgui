@@ -8,14 +8,14 @@ App.the_modules = {
 
 		// Backbone Model + Collection
 		'model/subject':'modules/subject_model',
-		'collection/subject': 'modules/subjects_collection',
+		'collection/subjects': 'modules/subjects_collection',
 
 		// Widgets
-		'widget/subject_widget': 'modules/subjects_widget',
+		'widget/subjects': 'modules/subjects_widget',
 
 		// Controllers
 		'widget/Dashboard': 'modules/dashboard_controller'
-		
+
 };
 
 // This is actually how we check if this is being ran
