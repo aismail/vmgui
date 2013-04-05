@@ -6,6 +6,11 @@ App.DataSourceConfig = {
                 type: 'relational',
                 collection: 'subjects',
                 url: App.general.FRONTEND_URL + '/subjects/'
+        },
+        '/userstosubjectis':{
+                type: 'relational',
+                collection: 'userstosubjectis',
+                url: App.general.FRONTEND_URL + '/userstosubjects/?user_id=3'
         }
     }
 };
