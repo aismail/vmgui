@@ -1,10 +1,17 @@
-from . import models
-from django.contrib.auth.models import User
-from django.utils.timezone import utc
-import factory
 import random
 import datetime
-from random import choice, randint
+import factory
+from tempfile import NamedTemporaryFile
+
+from django.utils.timezone import utc
+from django.core.files import File
+
+from . import models
+
+def generateFile():
+    new_file = NamedTemporaryFile(delete=False)
+    new_file.write("Some content")
+    return new_file.name
 
 
 class UserFactory(factory.Factory):
@@ -39,7 +46,7 @@ class UsersToSubjectsFactory(factory.Factory):
     FACTORY_FOR = models.UsersToSubjects
     subject = factory.SubFactory(SubjectFactory)
     user = factory.SubFactory(UserFactory)
-    role = choice(['teacher', 'student', 'assistant'])
+    role = random.choice(['teacher', 'student', 'assistant'])
 
 
 class SubmissionFactory(factory.Factory):
@@ -47,8 +54,8 @@ class SubmissionFactory(factory.Factory):
     student = factory.SubFactory(UserFactory)
     assignment = factory.SubFactory(AssignmentFactory)
     uploaded_at = datetime.datetime.now()
-    graded = choice([True, False])
-    # TODO random filefield
+    graded = random.choice([True, False])
+    content = File(open(generateFile()))
 
 
 class SubmissionCommentFactory(factory.Factory):
@@ -56,6 +63,6 @@ class SubmissionCommentFactory(factory.Factory):
     submission = factory.SubFactory(SubmissionFactory)
     filename = factory.LazyAttribute(lambda x: '%030x' %
                                      random.randrange(256 ** 15))
-    line_no = randint(1, 100)
+    line_no = random.randint(1, 100)
     comment = factory.LazyAttribute(lambda x: '%030x' %
                                     random.randrange(256 ** 15))

@@ -7,18 +7,17 @@ Replace this with more appropriate tests for your application.
 TODO: This file has to be split UP for every file. test_submission.py
 """
 import datetime
-import factory
-from factories import *
+
 from django.utils.timezone import utc
-from django.conf import settings
 from django.test import TestCase
-from django.contrib.auth.models import User
-import logging
-from models import Subject, Assignment, UsersToSubjects, Submission,\
-    SubmissionComment
+
+from vmc_backend.models import Assignment, Subject, Submission
+from vmc_backend.factories import (AssignmentFactory, SubjectFactory,
+                                   SubmissionFactory, SubmissionCommentFactory,
+                                   UsersToSubjectsFactory)
 
 
-#the class below is just for learning purposes. It's going to be deleted.
+# the class below is just for learning purposes. It's going to be deleted.
 class LetsSeeIfTheFactoriesWorkProperlyTest(TestCase):
     def test_factories(self):
         subiect = SubjectFactory.create()
@@ -41,7 +40,7 @@ class TestSubmissionModel(TestCase):
 
 class AssignmentModelTest(TestCase):
 
-    #checks if the attachments field is set as optional
+    # checks if the attachments field is set as optional
     def test_optional_field(self):
         testsubject = Subject(name="testname", description="testdescription",
                               link="http://www.google.ro/")
