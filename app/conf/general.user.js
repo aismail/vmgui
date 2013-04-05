@@ -22,8 +22,7 @@ var LOG_LEVEL = {
 };
 
 App.user = {
-    FRONTAPI_URL: FRONTAPI.TEST,
-    FRONTEND_URL: FRONTAPI.TEST,
-    STATIC_URL: 'http://localhost',
+    FRONTEND_URL: '/api/v1',
+    STATIC_URL: '',
     LOG_LEVEL: LOG_LEVEL.ERROR
 };
