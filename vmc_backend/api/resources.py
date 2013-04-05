@@ -38,6 +38,7 @@ class SubjectResource(BaseResource):
     class Meta(BaseResource.Meta):
         queryset = Subject.objects.all()
         allowed_methods = ['get']
+        resource_name = 'subjects'
 
     def dehydrate(self, bundle):
         bundle.data['contact_emails'] = bundle.obj.contact_email_list()
