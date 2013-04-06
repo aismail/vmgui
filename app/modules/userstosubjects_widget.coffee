@@ -13,5 +13,5 @@ define ['cs!widget'], (Widget) ->
                 (There is another type of channel as well, which can store raw
                 JSON data).
             ###
-             @renderLayout(userstosubjects: userstosubjects_params.collection.toJSON(),false)
+            @renderLayout(userstosubjects: userstosubjects_params.collection.toJSON(),false)
 
