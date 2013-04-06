@@ -24,8 +24,9 @@ define ['cs!controller'], (Controller) ->
                 subjects_params:
                     'channels':
                         '/subjects': subjects
-                userstosubjects_params:
+                userstosubjects_and_subjects_params:
                     'channels':
+                        '/subjects':subjects,
                         '/userstosubjects': userstosubjects
 
             # Render the layout (todo_page.hjs)
