@@ -7,9 +7,9 @@ App.DataSourceConfig = {
                 collection: 'subjects',
                 url: App.general.FRONTEND_URL + '/subjects/'
         },
-        '/userstosubjectis':{
+        '/userstosubjects':{
                 type: 'relational',
-                collection: 'userstosubjectis',
+                collection: 'userstosubjects',
                 url: App.general.FRONTEND_URL + '/userstosubjects/?user_id=3'
         }
     }
