@@ -24,7 +24,8 @@ $ python manage.py populate_db
 # start the python server
 $ python manage.py run_gunicorn
 
-# serve static content through nginx
+# install nginx
 $ sudo apt-get install nginx
-# TODO add configuration to serve the static content, admin and api.
+# TODO configure nginx to serve the static content
+# TODO configure nginx to forward to django for /admin/ and /api/
 ````
