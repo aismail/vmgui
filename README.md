@@ -6,28 +6,25 @@ vmchecker GUI
 install
 -------
 
-    ````shell
-    # python
-    $ sudo apt-get install python2.7
-    $ sudo easy_install pip
-    $ sudo pip install virtualenv
+````shell
+# install python and virtualenv.
+$ sudo apt-get install python2.7
+$ sudo easy_install pip
+$ sudo pip install virtualenv
 
-    # web server
-    $ git clone git@github.com:aismail/vmgui.git
-    $ cd vmgui
-    $ mkvirtualenv vmgui
-    $ pip install -r install/requirements.txt
+# get the code and create an env for it.
+$ git clone git@github.com:aismail/vmgui.git
+$ cd vmgui
+$ mkvirtualenv vmgui
+$ pip install -r install/requirements.txt
 
-    # sqlite database
-    $ cp install/dump/vmc_db vmc_backend
+# populate database with test data.
+$ python manage.py populate_db
 
-    # TODO instructions to link static content to django
-    ````
+# start the python server
+$ python manage.py run_gunicorn
 
-run
----
-
-    ````shell
-    $ cd vmgui
-    $ python manage.py run_gunicorn
-    ````
+# serve static content through nginx
+$ sudo apt-get install nginx
+# TODO add configuration to serve the static content, admin and api.
+````
