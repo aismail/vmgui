@@ -10,7 +10,7 @@ define ['cs!controller'], (Controller) ->
             #
             # In the variable "todos", we are storing a unique identifier
             # of the todos channel in the datasource.
-            [subjects, userstosubjects] = Utils.newDataChannels('/subjects',\
+            [subjects, userstosubjects] = Utils.newDataChannels('/subjects',
                                           '/userstosubjects')
 
             # We're using Handlebars.js for templating and in the template
