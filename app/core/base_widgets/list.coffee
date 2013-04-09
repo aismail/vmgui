@@ -48,7 +48,6 @@ define ['cs!scrollable_widget'], (ScrollableWidget) ->
         subscribed_channels: ['/items']
         loading_channels: ['/items']
 
-        template_name : 'templates/list.hjs'
 
         params_defaults:
             enable_scroll: 'data-params'
