@@ -21,12 +21,15 @@ define ['cs!controller'], (Controller) ->
                 # Parameters passed to the TODO list widget.
                 # It needs to have access to the todos channel in order to
                 # display the items and treat events like new items added.
+                list_params:
+                    item_channels: subjects
+                    channels:
+                        '/items': userstosubjects
+                    item: 'userstosubjects'
                 subjects_params:
                     'channels':
                         '/subjects': subjects
-                userstosubjects_and_subjects_params:
-                    'channels':
-                        '/subjects':subjects,
+                userstosubjects_params:
                         '/userstosubjects': userstosubjects
 
             # Render the layout (todo_page.hjs)
