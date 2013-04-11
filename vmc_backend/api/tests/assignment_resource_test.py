@@ -9,7 +9,7 @@ class AssignmentResourceTest(ResourceTestCase):
         super(AssignmentResourceTest, self).setUp()
         self.as1 = AssignmentFactory()
         self.as2 = AssignmentFactory()
-        self.base_url = '/api/v1/assignment/'
+        self.base_url = '/api/v1/assignments/'
 
     def test_get_detail_json(self):
         resp = self.api_client.get(self.base_url, format='json')
