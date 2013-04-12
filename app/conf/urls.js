@@ -10,4 +10,8 @@ App.urls = {
 		'controller': 'Dashboard',
 		'layout': 'templates/dashboard_controller.hjs'
 	},
+    'subjects/:id':{
+        'controller': 'Subject',
+        'layout': 'templates/subject_controller.hjs'
+    },
 };
