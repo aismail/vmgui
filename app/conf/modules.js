@@ -8,15 +8,19 @@ App.the_modules = {
 
 		// Backbone Model + Collection
 		'model/subject':'modules/subject_model',
+        'model/submission': 'modules/submission_model',
+        'model/assignment': 'modules/assignment_model',
 		'collection/subjects': 'modules/subjects_collection',
+        'collection/submissions': 'modules/submissions_collection',
+        'collection/assignments': 'modules/assignments_collection',
 
 		// Widgets
 		'widget/subjects': 'modules/subjects_widget',
         'widget/header': 'modules/header_widget',
 
 		// Controllers
-		'widget/Dashboard': 'modules/dashboard_controller'
-
+		'widget/Dashboard': 'modules/dashboard_controller',
+        'widget/Assignment': 'modules/assignment_controller'
 };
 
 // This is actually how we check if this is being ran
