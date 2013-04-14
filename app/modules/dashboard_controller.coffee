@@ -22,15 +22,15 @@ define ['cs!controller'], (Controller) ->
                 # It needs to have access to the todos channel in order to
                 # display the items and treat events like new items added.
                 list_params:
-                    item_channels: subjects
+                    item_channels: 
+                        '/items': userstosubjects
+                        '/subjects': subjects
                     channels:
                         '/items': userstosubjects
                     item: 'userstosubjects'
                 subjects_params:
                     'channels':
                         '/subjects': subjects
-                userstosubjects_params:
-                        '/userstosubjects': userstosubjects
 
             # Render the layout (todo_page.hjs)
             @renderLayout(params)
