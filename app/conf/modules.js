@@ -8,7 +8,7 @@ App.the_modules = {
 
 		// Backbone Model + Collection
 		'model/subject':'modules/subject_model',
-        'model/userstosubjects':'modules/userstosubjects_model.coffee',
+        'model/userstosubjects':'modules/userstosubjects_model',
 		'collection/subjects': 'modules/subjects_collection',
         'collection/userstosubjects':'modules/userstosubjects_collection',
 
