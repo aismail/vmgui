@@ -5,8 +5,8 @@ define ['cs!widget'], (Widget) ->
 
         aggregated_channels:{get_userstosubjects_and_subjects: ['/items/{{id}}',
                             '/subjects']}
-        get_userstosubjects_and_subjects: (subjects_params, list_params) =>
-            
+
+        get_userstosubjects_and_subjects: (item_params, subjects_params) =>
             ###
                 This method will be called whenever there are changes
                 to the /todos channel. Changes can be of multiple types,
@@ -15,7 +15,8 @@ define ['cs!widget'], (Widget) ->
                 JSON data).
             ###
             params=
-                items: @channel_mapping['/items/{{id}}'].collection.toJSON(),
-                subjects: @channel_mapping['/subjects'].collection.toJSON()
+                item: item_params.collection.toJSON()
+                subjects: subjects_params.collection.toJSON()
+
             @renderLayout(params,false)
 
