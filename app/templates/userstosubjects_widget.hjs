@@ -1,1 +1,2 @@
-{{user_to_subject_row item subjects}}
+<td><a href="{{subject.link}}">{{subject.name}}</a></td>
+<td>{{item.role}}</td>
