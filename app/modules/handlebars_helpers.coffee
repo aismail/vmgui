@@ -3,7 +3,7 @@ Handlebars.registerHelper 'user_to_subject_raw', \
     buffer = ''
     for subject in subjects
         if userstosubjects.subject_id == subject.id
-            buffer += "<tr><td><a href=" + subject.link + ">" +
+            buffer += "<td><a href=" + subject.link + ">" +
                 subject.name + "</a></td><td>" + userstosubjects.role +
-                "</td></tr>"
+                "</td>"
             return new Handlebars.SafeString(buffer)
