@@ -4,5 +4,4 @@ define ['cs!widget'], (Widget) ->
         template_name: 'templates/subject_details_widget.hjs'
 
         get_subjects: (params) =>
-            if params.type is 'reset'
-                @renderLayout(subject: params.collection.toJSON(), false)
+            @renderLayout(subject: params.model.toJSON(), false)
