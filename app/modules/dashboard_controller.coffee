@@ -28,6 +28,7 @@ define ['cs!controller'], (Controller) ->
                     channels:
                         '/items': userstosubjects
                     item: 'userstosubjects'
+                    item_element: 'tr'
                 subjects_params:
                     'channels':
                         '/subjects': subjects
