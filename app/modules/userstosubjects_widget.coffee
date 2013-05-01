@@ -15,7 +15,7 @@ define ['cs!widget'], (Widget) ->
                 JSON data).
             ###
             params=
-                item: item_params.collection.toJSON()
+                item: item_params.model.toJSON()
                 subjects: subjects_params.collection.toJSON()
 
             @renderLayout(params,false)
