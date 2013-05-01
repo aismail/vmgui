@@ -14,9 +14,10 @@ define ['cs!widget'], (Widget) ->
                 (There is another type of channel as well, which can store raw
                 JSON data).
             ###
+            subject_id = item_params.model.toJSON().subject_id
             params=
                 item: item_params.model.toJSON()
-                subjects: subjects_params.collection.toJSON()
+                subject: subjects_params.collection.get(subject_id).toJSON()
 
             @renderLayout(params,false)
 
