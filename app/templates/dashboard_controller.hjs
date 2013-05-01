@@ -1,4 +1,4 @@
 <h1>Dashboard</h1>
-<div class="mozaic-widget" data-widget="list" data-params="{{list_params}}"></div>
+<table class="mozaic-widget" data-widget="list" data-params="{{list_params}}"></div>
 
 
