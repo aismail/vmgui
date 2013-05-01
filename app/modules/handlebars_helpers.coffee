@@ -1,4 +1,4 @@
-Handlebars.registerHelper 'user_to_subject_raw', \
+Handlebars.registerHelper 'user_to_subject_row', \
                                     (userstosubjects, subjects, options) ->
     buffer = ''
     for subject in subjects
