@@ -8,10 +8,13 @@ App.the_modules = {
 
 		// Backbone Model + Collection
 		'model/subject':'modules/subject_model',
+        'model/userstosubjects':'modules/userstosubjects_model',
 		'collection/subjects': 'modules/subjects_collection',
+        'collection/userstosubjects':'modules/userstosubjects_collection',
 
 		// Widgets
 		'widget/subjects': 'modules/subjects_widget',
+        'widget/userstosubjects': 'modules/userstosubjects_widget',
         'widget/header': 'modules/header_widget',
 
 		// Controllers
