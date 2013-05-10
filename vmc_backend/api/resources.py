@@ -19,6 +19,7 @@ class SubmissionResource(BaseResource):
         allowed_methods = ['get', 'post']
         authentication = Authentication()
         authorization = Authorization()
+        resource_name = 'submissions'
 
 
 class AssignmentResource(BaseResource):
@@ -31,6 +32,7 @@ class AssignmentResource(BaseResource):
         }
         queryset = Assignment.objects.all()
         allowed_methods = ['get', 'post']
+        resource_name = 'assignments'
 
 
 class SubjectResource(BaseResource):
