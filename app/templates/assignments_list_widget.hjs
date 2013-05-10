@@ -1,0 +1,6 @@
+{{#each assignments}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{deadline}}</td>
+    </tr>
+{{/each}}
