@@ -16,6 +16,7 @@ App.the_modules = {
         'widget/subjects': 'modules/subjects_widget',
         'widget/header': 'modules/header_widget',
         'widget/subject_details': 'modules/subject_details_widget',
+        'widget/assignments': 'modules/assignments_list_widget',
 
         // Controllers
         'widget/Dashboard': 'modules/dashboard_controller',
