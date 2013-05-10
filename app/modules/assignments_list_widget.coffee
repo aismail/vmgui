@@ -1,7 +1,7 @@
 define ['cs!widget'], (Widget) ->
     class AssignmentsWidget extends Widget
         subscribed_channels: ['/assignments']
-        template_name: 'templates/assignments_widget.hjs'
+        template_name: 'templates/assignments_list_widget.hjs'
 
 
         get_assignments: (assignments_params, subject_id) =>
