@@ -15,6 +15,7 @@ App.the_modules = {
 		// Widgets
 		'widget/subjects': 'modules/subjects_widget',
         'widget/userstosubjects': 'modules/userstosubjects_widget',
+        'widget/header': 'modules/header_widget',
 
 		// Controllers
 		'widget/Dashboard': 'modules/dashboard_controller'
