@@ -10,8 +10,12 @@ define ['cs!controller'], (Controller) ->
             #
             # In the variable "todos", we are storing a unique identifier
             # of the todos channel in the datasource.
-            [subjects] = Utils.newDataChannels('/subjects')
+            channel_params =
+                '/subjects': {}
+                '/assignments': 
+                    'subject_id': this.url_params[0]
 
+            [subjects, assignments] = Utils.newDataChannels(channel_params)
             # We're using Handlebars.js for templating and in the template
             # associated with this controller (todo_page.hjs, configured in
             # urls.js) there are two widgets injected (with div class="uberwidget").
@@ -23,7 +27,9 @@ define ['cs!controller'], (Controller) ->
                 subjects_params:
                     'channels':
                         '/subjects': subjects
-                    'id': {{id}}
+                assignments_params:
+                    'channels':
+                        '/assignments': assignments
 
             # Render the layout (todo_page.hjs)
             @renderLayout(params)
