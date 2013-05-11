@@ -17,6 +17,7 @@ App.the_modules = {
 		// Widgets
 		'widget/subjects': 'modules/subjects_widget',
         'widget/header': 'modules/header_widget',
+        'widget/assignment_details': 'modules/assignment_details_widget',
 
 		// Controllers
 		'widget/Dashboard': 'modules/dashboard_controller',
