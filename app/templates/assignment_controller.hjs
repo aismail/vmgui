@@ -1,1 +1,2 @@
 <p>It works</p>
+<table class="mozaic-widget" data-widget="submissions_list" data-params="{{submissions_params}}"></table>
