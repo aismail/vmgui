@@ -10,8 +10,12 @@ define ['cs!controller'], (Controller) ->
             #
             # In the variable "todos", we are storing a unique identifier
             # of the todos channel in the datasource.
-            [submissions, assignments] = Utils.newDataChannels('/submissions',
-                                        '/assignments')
+            channel_params=
+                '/submissions':
+                    'assignment_id': this.url_params[0]
+                '/assignments': {}
+
+            [submissions, assignments] = Utils.newDataChannels(channel_params)
 
             # We're using Handlebars.js for templating and in the template
             # associated with this controller (todo_page.hjs, configured in
