@@ -11,7 +11,7 @@ App.urls = {
 		'layout': 'templates/dashboard_controller.hjs'
 	},
     'submissions/:id': {
-        'controller': 'submission',
+        'controller': 'Submission',
         'layout': 'templates/submission_controller.hjs'
     },
 };
