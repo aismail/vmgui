@@ -3,5 +3,5 @@ define ['cs!widget'], (Widget) ->
         subscribed_channels: ['/assignments/{{id}}']
         template_name: 'templates/assignment_details_widget.hjs'
 
-        get_subjects: (params) =>
+        get_assignments: (params) =>
             @renderLayout(assignment: params.model.toJSON(), false)
