@@ -1,0 +1,2 @@
+<td><a href="{{subject.link}}">{{subject.name}}</a></td>
+<td>{{item.role}}</td>
