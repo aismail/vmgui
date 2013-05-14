@@ -17,7 +17,7 @@ class SubmissionResourceTest(ResourceTestCase):
         self.user = User.objects.create_user(self.username,
                         'daniel@example.com', self.password)
 
-        self.detail_url = '/api/v1/submission/%d/' % self.subm1.pk
+        self.detail_url = '/api/v1/submissions/%d/' % self.subm1.pk
 
         self.post_data = {
             'student_id': self.subm1.student_id,
@@ -36,7 +36,7 @@ class SubmissionResourceTest(ResourceTestCase):
         self.assertValidJSONResponse(resp)
 
     def test_get_list_json(self):
-        resp = self.api_client.get('/api/v1/submission/', format='json',
+        resp = self.api_client.get('/api/v1/submissions/', format='json',
                                    authentication=self.get_credentials())
         self.assertValidJSONResponse(resp)
         self.assertEqual(len(self.deserialize(resp)['objects']), 2)
@@ -45,7 +45,7 @@ class SubmissionResourceTest(ResourceTestCase):
         # Check how many are there first.
         self.assertEqual(Submission.objects.count(), 2)
         # from nose.tools import set_trace; set_trace()
-        self.assertHttpCreated(self.api_client.post('/api/v1/submission/',
+        self.assertHttpCreated(self.api_client.post('/api/v1/submissions/',
                              format='json', data=self.post_data))
         # Verify a new one has been added.
         self.assertEqual(Submission.objects.count(), 3)
@@ -53,7 +53,7 @@ class SubmissionResourceTest(ResourceTestCase):
     def test_filtering_by_assignment(self):
         """ Asserts if filtering by assignment returns right objects
         """
-        resp = self.api_client.get('/api/v1/submission/?assignment_id={0}'.
+        resp = self.api_client.get('/api/v1/submissions/?assignment_id={0}'.
                format(self.subm1.assignment_id), format='json')
         self.assertEqual(len(self.deserialize(resp)['objects']), 1)
 

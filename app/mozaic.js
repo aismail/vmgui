@@ -1,4 +1,8 @@
-require(["cs!core/constants", "cs!core/utils", "cs!logger"], function() {
+require([
+        "cs!core/constants",
+        "cs!core/utils",
+        "cs!logger",
+        "cs!modules/handlebars_helpers"], function() {
     require(["cs!loader"], function() {
         logger.level(App.general.LOG_LEVEL);
         loader.load_module("cs!router",        // Class to load & instantiate

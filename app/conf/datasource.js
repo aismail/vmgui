@@ -7,17 +7,22 @@ App.DataSourceConfig = {
                 collection: 'subjects',
                 url: App.general.FRONTEND_URL + '/subjects/'
         },
-        '/submissions': {
+        '/userstosubjects':{
+                type: 'relational',
+                collection: 'userstosubjects',
+                url: App.general.FRONTEND_URL + '/userstosubjects/?user_id=3'
+        },
+        'submissions':{
                 type: 'relational',
                 collection: 'submissions',
-                url: App.general.FRONTEND_URL + '/submission/'
-                //TODO change to /submissions/ when b/#113 is merged
+                url: App.general.FRONTEND_URL + '/submissions/'
         },
         '/assignments': {
                 type: 'relational',
                 collection: 'assignments',
                 url: App.general.FRONTEND_URL + '/assignment/'
                 //TODO change to /assignemnts/ when b/#113 is merged
+
         }
     }
 };

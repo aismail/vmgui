@@ -8,14 +8,17 @@ App.the_modules = {
 
 		// Backbone Model + Collection
 		'model/subject':'modules/subject_model',
-        'model/submission': 'modules/submission_model',
+        'model/userstosubjects':'modules/userstosubjects_model',
+        'model/submission': 'modules/sumbission_model',
         'model/assignment': 'modules/assignment_model',
-		'collection/subjects': 'modules/subjects_collection',
+        'collection/subjects': 'modules/subjects_collection',
+        'collection/userstosubjects':'modules/userstosubjects_collection',
         'collection/submissions': 'modules/submissions_collection',
         'collection/assignments': 'modules/assignments_collection',
 
 		// Widgets
 		'widget/subjects': 'modules/subjects_widget',
+        'widget/userstosubjects': 'modules/userstosubjects_widget',
         'widget/header': 'modules/header_widget',
 
 		// Controllers
