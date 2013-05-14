@@ -3,25 +3,28 @@ var App = App || {};
 App.main_modules = App.main_modules || {};
 
 App.the_modules = {
-		// Custom Application Controller
-		'core_application_controller': 'core/application_controller',
+        // Custom Application Controller
+        'core_application_controller': 'core/application_controller',
 
-		// Backbone Model + Collection
-		'model/subject':'modules/subject_model',
+        // Backbone Model + Collection
+        'model/subject':'modules/subject_model',
         'model/userstosubjects':'modules/userstosubjects_model',
         'model/submission': 'modules/sumbission_model',
-		'collection/subjects': 'modules/subjects_collection',
+        'model/assignment':'modules/assignment_model',
+        'collection/subjects': 'modules/subjects_collection',
         'collection/userstosubjects':'modules/userstosubjects_collection',
         'collection/submissions': 'modules/submissions_collection',
+        'collection/assignments': 'modules/assignments_collection',
 
-		// Widgets
-		'widget/subjects': 'modules/subjects_widget',
+        // Widgets
+        'widget/subjects': 'modules/subjects_widget',
         'widget/userstosubjects': 'modules/userstosubjects_widget',
         'widget/header': 'modules/header_widget',
         'widget/subject_details': 'modules/subject_details_widget',
+        'widget/assignments': 'modules/assignments_list_widget',
 
-		// Controllers
-		'widget/Dashboard': 'modules/dashboard_controller',
+        // Controllers
+        'widget/Dashboard': 'modules/dashboard_controller',
         'widget/Submission': 'modules/submission_controller'
         'widget/Subject': 'modules/subject_controller'
 
