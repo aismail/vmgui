@@ -18,10 +18,12 @@ App.the_modules = {
 		'widget/subjects': 'modules/subjects_widget',
         'widget/userstosubjects': 'modules/userstosubjects_widget',
         'widget/header': 'modules/header_widget',
+        'widget/subject_details': 'modules/subject_details_widget',
 
 		// Controllers
 		'widget/Dashboard': 'modules/dashboard_controller',
         'widget/Submission': 'modules/submission_controller'
+        'widget/Subject': 'modules/subject_controller'
 
 };
 
