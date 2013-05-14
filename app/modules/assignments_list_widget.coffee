@@ -4,13 +4,11 @@ define ['cs!widget'], (Widget) ->
         template_name: 'templates/assignments_list_widget.hjs'
 
 
-        get_assignments: (assignments_params, subject_id) =>
+        get_assignments: (assignments_params) =>
             ###
                 This method will be called whenever there are changes
-                to the /todos channel. Changes can be of multiple types,
+                to the /assignments channel. Changes can be of multiple types,
                 as this data channel is actually a Backbone Collection.
-                (There is another type of channel as well, which can store raw
-                JSON data).
             ###
             params=
                 assignments: assignments_params.collection.toJSON()
