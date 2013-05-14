@@ -1,0 +1,3 @@
+<span><a href="{{subject.link}}">{{subject.name}}</a></span>
+<p>{{subject.description}}</p>
+<span>Contact: {{subject.contact_emails}}</span>
