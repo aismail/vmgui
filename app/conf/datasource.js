@@ -20,9 +20,7 @@ App.DataSourceConfig = {
         '/assignments': {
                 type: 'relational',
                 collection: 'assignments',
-                url: App.general.FRONTEND_URL + '/assignment/'
-                //TODO change to /assignemnts/ when b/#113 is merged
-
+                url: App.general.FRONTEND_URL + '/assignments/'
         }
     }
 };
