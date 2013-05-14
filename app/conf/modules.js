@@ -20,7 +20,8 @@ App.the_modules = {
         'widget/header': 'modules/header_widget',
 
 		// Controllers
-		'widget/Dashboard': 'modules/dashboard_controller'
+		'widget/Dashboard': 'modules/dashboard_controller',
+        'widget/Submission': 'modules/submission_controller'
 
 };
 
