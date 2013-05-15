@@ -5,7 +5,7 @@ define ['cs!widget'], (Widget) ->
 
         get_submission: (params) =>
             assignment_id = params.model.toJSON().assignment_id
-            new_url = Utils.render_url(Utils.current_url()+"assignments/{{id}}",\
+            new_url = Utils.render_url(Utils.current_url()+"#assignments/{{id}}",\
                       {id:assignment_id}, [])
             params=
                 submission: params.model.toJSON()
