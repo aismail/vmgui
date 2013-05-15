@@ -1,1 +1,2 @@
 <div class="mozaic-widget" data-widget="subject_details" data-params="{{subjects_params}}"></div>
+<table class="mozaic-widget" data-widget="assignments" data-params="{{assignments_params}}"></table>
