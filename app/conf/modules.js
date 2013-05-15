@@ -9,7 +9,7 @@ App.the_modules = {
         // Backbone Model + Collection
         'model/subject':'modules/subject_model',
         'model/userstosubjects':'modules/userstosubjects_model',
-        'model/submission': 'modules/sumbission_model',
+        'model/submission': 'modules/submission_model',
         'model/assignment': 'modules/assignment_model',
         'collection/subjects': 'modules/subjects_collection',
         'collection/userstosubjects':'modules/userstosubjects_collection',
@@ -22,6 +22,7 @@ App.the_modules = {
         'widget/header': 'modules/header_widget',
         'widget/subject_details': 'modules/subject_details_widget',
         'widget/assignments': 'modules/assignments_list_widget',
+        'widget/submission_details': 'modules/submission_details_widget',
 
         // Controllers
         'widget/Dashboard': 'modules/dashboard_controller',
