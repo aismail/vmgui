@@ -10,7 +10,8 @@ define ['cs!controller'], (Controller) ->
             #
             # In the variable "todos", we are storing a unique identifier
             # of the todos channel in the datasource.
-            [subjects] = Utils.newDataChannels('/subjects')
+            [subjects, userstosubjects] = Utils.newDataChannels('/subjects',
+                                          '/userstosubjects')
 
             # We're using Handlebars.js for templating and in the template
             # associated with this controller (todo_page.hjs, configured in
@@ -20,6 +21,14 @@ define ['cs!controller'], (Controller) ->
                 # Parameters passed to the TODO list widget.
                 # It needs to have access to the todos channel in order to
                 # display the items and treat events like new items added.
+                list_params:
+                    item_channels: 
+                        '/items': userstosubjects
+                        '/subjects': subjects
+                    channels:
+                        '/items': userstosubjects
+                    item: 'userstosubjects'
+                    item_element: 'tr'
                 subjects_params:
                     'channels':
                         '/subjects': subjects

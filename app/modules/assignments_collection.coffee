@@ -1,5 +1,4 @@
-define ['cs!base_collection', 'cs!model/assignment'], (BaseCollection, Assignment) ->
+define ['cs!base_collection', 'cs!model/subject'], (BaseCollection, Assignment) ->
     class AssignmentCollection extends BaseCollection
-            model: Assignment
-
+        model: Assignment
 
