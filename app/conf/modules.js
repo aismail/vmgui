@@ -10,7 +10,7 @@ App.the_modules = {
         'model/subject':'modules/subject_model',
         'model/userstosubjects':'modules/userstosubjects_model',
         'model/submission': 'modules/sumbission_model',
-        'model/assignment':'modules/assignment_model',
+        'model/assignment': 'modules/assignment_model',
         'collection/subjects': 'modules/subjects_collection',
         'collection/userstosubjects':'modules/userstosubjects_collection',
         'collection/submissions': 'modules/submissions_collection',
@@ -25,8 +25,9 @@ App.the_modules = {
 
         // Controllers
         'widget/Dashboard': 'modules/dashboard_controller',
-        'widget/Submission': 'modules/submission_controller'
-        'widget/Subject': 'modules/subject_controller'
+        'widget/Submission': 'modules/submission_controller',
+        'widget/Subject': 'modules/subject_controller',
+        'widget/Assignment': 'modules/assignment_controller'
 
 };
 
