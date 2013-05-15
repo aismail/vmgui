@@ -15,9 +15,12 @@ define ['cs!widget'], (Widget) ->
                 JSON data).
             ###
             subject_id = item_params.model.toJSON().subject_id
+            new_url = Utils.render_url(Utils.current_url() + "#subjects/{{id}}",\
+                      {id: subject_id}, [])
             params=
                 item: item_params.model.toJSON()
                 subject: subjects_params.collection.get(subject_id).toJSON()
+                url: new_url
 
             @renderLayout(params,false)
 
