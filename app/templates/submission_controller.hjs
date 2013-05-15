@@ -1,1 +1,1 @@
-<div class="mozaic-widget" data-widget="submission_details_widget" data-params="{{submissions_params}}"></div>
+<div class="mozaic-widget" data-widget="submission_details" data-params="{{submissions_params}}"></div>

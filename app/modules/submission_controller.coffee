@@ -11,5 +11,6 @@ define ['cs!controller'], (Controller) ->
                 submissions_params:
                     'channels':
                         '/submissions':submissions
+                    'id': @params.url_params[0]
             @renderLayout(params)
 
