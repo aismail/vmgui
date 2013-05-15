@@ -3,7 +3,7 @@ define ['cs!widget'], (Widget) ->
         subscribed_channels: ['/submissions/{{id}}']
         template_name: 'templates/submission_details_widget.hjs'
 
-        get_submission: (params) =>
+        get_submissions: (params) =>
             assignment_id = params.model.toJSON().assignment_id
             new_url = Utils.render_url(Utils.current_url()+"#assignments/{{id}}",\
                       {id:assignment_id}, [])
