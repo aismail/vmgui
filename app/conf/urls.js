@@ -17,4 +17,8 @@ App.urls = {
         'controller': 'Subject',
         'layout': 'templates/subject_controller.hjs'
     },
+    'assignment/:id': {
+        'controller': 'Assignment',
+        'layout': 'templates/assignment_controller.hjs'
+    },
 };
