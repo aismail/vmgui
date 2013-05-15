@@ -17,7 +17,7 @@ App.DataSourceConfig = {
                 collection: 'submissions',
                 url: App.general.FRONTEND_URL + '/submissions/'
         },
-        '/assignments': {
+        '/assignments':{
                 type: 'relational',
                 collection: 'assignments',
                 url: App.general.FRONTEND_URL + '/assignments/'
