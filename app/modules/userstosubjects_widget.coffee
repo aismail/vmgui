@@ -9,10 +9,7 @@ define ['cs!widget'], (Widget) ->
         get_userstosubjects_and_subjects: (item_params, subjects_params) =>
             ###
                 This method will be called whenever there are changes
-                to the /todos channel. Changes can be of multiple types,
-                as this data channel is actually a Backbone Collection.
-                (There is another type of channel as well, which can store raw
-                JSON data).
+                to the /subjects channel or to the /userstosubjects channel.
             ###
             subject_id = item_params.model.toJSON().subject_id
             params=
