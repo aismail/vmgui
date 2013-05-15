@@ -4,4 +4,10 @@ define ['cs!widget'], (Widget) ->
         template_name: 'templates/submission_details_widget.hjs'
 
         get_submission: (params) =>
-            @renderLayout(submission: params.model.toJSON(), false)
+            assignment_id = params.model.toJSON().assignment_id
+            new_url = Utils.render_url(Utils.current_url()+"assignments/{{id}}",\
+                      {id:assignment_id}, [])
+            params=
+                submission: params.model.toJSON()
+                url: new_url
+            @renderLayout(params, false)

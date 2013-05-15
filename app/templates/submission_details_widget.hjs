@@ -1,4 +1,4 @@
-<a href="localhost/#assignments/{{submission.assignment_id}}">Assignment</a>
+<a href="{{url}}">Assignment</a>
 <span>Uploaded at: {{submission.uploaded_at}}</span>
 <span>Grade: {{submission.graded}}</span>
 <p>TODO: Here will be the content of each file submited by a student</p>
