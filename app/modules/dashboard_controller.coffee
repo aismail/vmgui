@@ -4,7 +4,8 @@ define ['cs!controller'], (Controller) ->
             # Create new data channels holding the Subjects and Usertosubjects
             # mapping. The channel configuration can be found in datasource.js.
 
-            [subjects, userstosubjects] = Utils.newDataChannels('/subjects',
+            [subjects, assignments, submissions, userstosubjects] = \
+                Utils.newDataChannels('/subjects', '/assignments', '/submissions',
                                           '/userstosubjects')
 
             params =
@@ -17,6 +18,11 @@ define ['cs!controller'], (Controller) ->
                         '/items': userstosubjects
                     item: 'userstosubjects'
                     item_element: 'tr'
+                breadcrumbs_params:
+                    'channels':
+                        '/subjects': subjects
+                        '/assignments': assignments
+                        '/submissions': submissions
 
             # Render the layout (dashboard_controller.hjs)
             @renderLayout(params)
