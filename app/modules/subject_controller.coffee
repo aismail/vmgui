@@ -13,6 +13,7 @@ define ['cs!controller'], (Controller) ->
                 subjects_params:
                     'channels':
                         '/subjects': subjects
+                    'id': @params.url_params[0]
                 assignments_params:
                     'channels':
                         '/assignments': assignments
