@@ -1,7 +1,6 @@
 define ['cs!controller'], (Controller) ->
     class SubmissionController extends Controller
         action: =>
-            # Create a new data channel holding the submissions.
             [subjects, assignments, submissions] = Utils.newDataChannels\
                 ('/subjects', '/assignments', '/submissions')
 
