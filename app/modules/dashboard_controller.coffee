@@ -29,9 +29,6 @@ define ['cs!controller'], (Controller) ->
                         '/items': userstosubjects
                     item: 'userstosubjects'
                     item_element: 'tr'
-                subjects_params:
-                    'channels':
-                        '/subjects': subjects
 
             # Render the layout (todo_page.hjs)
             @renderLayout(params)
