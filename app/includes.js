@@ -1,6 +1,8 @@
 /*
  * Include CSS and JS files utilities, with or without IE support.
  */
+EXTRA_BRANDING =["/assets/custom.css"];
+USE_BRANDING = false;
 function includeJsFile(file) {
     document.write('<script type="text/javascript" src="' +
                    file + '"><\/sc' + 'ript/>');
@@ -37,7 +39,9 @@ function getStaticUrl() {
 
 function includeCssAndJs() {
     includeStaticFilesInBundles();
-    includeBranding();
+    if (USE_BRANDING){
+        includeBranding(EXTRA_BRANDING);
+    }
     includeMainEntryPoint();
     includeTemplates();
 }
@@ -102,9 +106,11 @@ function includeStaticFilesInBundles_Development() {
  *       Also, we cannot use includeCss because we need it to have an ID
  *       (#custom-css).
  */
-function includeBranding() {
-   document.write("<link rel='stylesheet' id='custom-css' " +
-                  "href='/assets/custom.css'/>");
+function includeBranding(files) {
+    for(var i=0; i < files.length;i++) {
+        document.write("<link rel='stylesheet' id='custom-css' " +
+                      "href= '" + files[i] + "'/>");
+    }
 }
 
 /*
