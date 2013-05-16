@@ -1,0 +1,4 @@
+<span>{{assignment.name}}</span>
+<span>{{assignment.deadline}}</span>
+<p>Here will be the homework content</p>
+<a href="{{assignment.attachements}}">Attachements</a>
