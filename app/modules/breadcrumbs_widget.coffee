@@ -8,8 +8,7 @@ define ['cs!widget'], (Widget) ->
 
         get_subjects_and_assignments: (subjects_params, assignments_params, submissions_params) =>
             base_url = Utils.current_url()
-            output = "<a href='" + base_url + "'>Dashboard</a> >>"
-            output = [ {url:base_url,name: "Dashboard"}]
+            output = [ {url:base_url, name: "Dashboard"}]
             current_url = window.location.href.split("/")
             id = current_url[current_url.length - 1]
             current_page = current_url[current_url.length - 2]
