@@ -38,7 +38,7 @@ class Command(BaseCommand):
        description = "Studentii vor invata conceptele din spatele sistemelor\
                      de operare", link = "")
       sd = Subject(name = "Structuri de date",
-       description = "Studentii vor invata structuri de data de baza", link = "")
+       description = "Studentii vor invata structuri de date de baza", link = "")
       pa = Subject(name = "Proiectarea algoritmilor",
        description = "Studentii vor fi introdusi in algoritmica", link = "")
       uso = Subject(name = "Utilizarea sistemelor de operare",
