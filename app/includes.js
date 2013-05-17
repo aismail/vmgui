@@ -37,8 +37,8 @@ function getStaticUrl() {
 
 function includeCssAndJs() {
     includeStaticFilesInBundles();
-    if (USE_BRANDING){
-        includeBranding(EXTRA_BRANDING);
+    if (App.general.EXTRA_BRANDING.length){
+        includeBranding(App.general.EXTRA_BRANDING);
     }
     includeMainEntryPoint();
     includeTemplates();
