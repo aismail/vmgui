@@ -22,6 +22,7 @@ define ['cs!widget'], (Widget) ->
                 id = assignment_id
 
             if current_page is "assignments" or assignment_id
+                assignment_id = id
                 aux = assignments_params.collection.get(id)
                 assignment = aux.attributes.name
                 subject_id = aux.attributes.subject_id

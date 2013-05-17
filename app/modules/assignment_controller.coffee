@@ -1,10 +1,20 @@
 define ['cs!controller'], (Controller) ->
     class AssignmentController extends Controller
         action: =>
-           [subjects, assignments, submissions] = Utils.newDataChannels\
-                ('/subjects', '/assignments', '/submissions')
+           channel_params=
+                '/submissions':
+                    'assignment_id': this.url_params[0]
+                '/assignments': {}
+                '/subjects': {}
 
-           params =
+            [submissions, assignments, subjects] = Utils.newDataChannels(channel_params)
+
+            params =
+                # Parameters passed to the submissions list widget.
+                submissions_list_params:
+                    'channels':
+                        '/submissions': submissions
+
                 # Parameters passed to the assignment details widget.
                 assignments_params:
                     'channels':
