@@ -1,1 +1,3 @@
+<div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
+<div class="mozaic-widget" data-widget="assignment_details" data-params="{{assignments_params}}"></div>
 <table class="mozaic-widget" data-widget="submissions_list" data-params="{{submissions_list_params}}"></table>

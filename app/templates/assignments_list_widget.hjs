@@ -1,6 +1,7 @@
+{{url}}
 {{#each assignments}}
     <tr>
-        <td>{{name}}</td>
+        <td><a href="{{../url}}{{id}}">{{name}}</a></td>
         <td>{{deadline}}</td>
     </tr>
 {{/each}}

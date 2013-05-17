@@ -23,7 +23,9 @@ App.the_modules = {
         'widget/subject_details': 'modules/subject_details_widget',
         'widget/assignments': 'modules/assignments_list_widget',
         'widget/submission_details': 'modules/submission_details_widget',
+        'widget/assignment_details': 'modules/assignment_details_widget',
         'widget/submissions_list': 'modules/submissions_list_widget',
+        'widget/breadcrumbs': 'modules/breadcrumbs_widget',
 
         // Controllers
         'widget/Dashboard': 'modules/dashboard_controller',

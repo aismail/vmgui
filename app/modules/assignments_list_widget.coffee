@@ -11,6 +11,7 @@ define ['cs!widget'], (Widget) ->
                 as this data channel is actually a Backbone Collection.
             ###
             params=
+                url: Utils.render_url(Utils.current_url() + "#assignments/")
                 assignments: assignments_params.collection.toJSON()
 
             @renderLayout(params,false)
