@@ -1,3 +1,17 @@
-<div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
-<div class="mozaic-widget" data-widget="subject_details" data-params="{{subjects_params}}"></div>
-<table class="mozaic-widget" data-widget="assignments" data-params="{{assignments_params}}"></table>
+<div class = "container">
+    <div class="mozaic-widget" data-widget="header"></div>
+    <div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
+    <div class="row"><br>
+        <div class="span8"><br>
+            <div class="mozaic-widget" data-widget="subject_details" data-params="{{subjects_params}}"></div>
+        </div><br>
+        <div class="span4"><br>
+            <table class="mozaic-widget" data-widget="assignments" data-params="{{assignments_params}}">
+                <tr>
+                    <td>Assignment</td>
+                    <td>Deadline</td>
+                </tr>
+            </table>
+        </div><br>
+    </div>
+</div>
