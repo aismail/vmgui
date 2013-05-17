@@ -15,6 +15,7 @@ App.general = {
     SVG_PATH: '/public/svg',
     ENVIRONMENT: 'testing',
 
+    //CSS files used for branding purposes
     EXTRA_BRANDING: [],
 
     // Throw exceptions and don't catch them with our wrapper
