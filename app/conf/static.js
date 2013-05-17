@@ -34,7 +34,7 @@ App.static_ie7_libs = ['core/libs/ie7.js'];
 App.static_ie7_libs_bundle_name = 'static_ie7_bundle.js';
 
 // CSS bundles
-App.static_css = ['css/style.css'];
+App.static_css = ['css/style.css', 'css/bootstrap.css'];
 App.static_css_bundle_name = 'css/static_css.css';
 
 if (typeof module != 'undefined') {
