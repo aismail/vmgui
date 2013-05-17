@@ -1,8 +1,6 @@
 /*
  * Include CSS and JS files utilities, with or without IE support.
  */
-EXTRA_BRANDING =["/assets/custom.css"];
-USE_BRANDING = false;
 function includeJsFile(file) {
     document.write('<script type="text/javascript" src="' +
                    file + '"><\/sc' + 'ript/>');
