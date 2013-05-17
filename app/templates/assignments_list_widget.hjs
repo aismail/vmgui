@@ -1,4 +1,7 @@
-{{url}}
+<tr>
+    <th>Assignment</th>
+    <th>Deadline</th>
+</tr>
 {{#each assignments}}
     <tr>
         <td><a href="{{../url}}{{id}}">{{name}}</a></td>
