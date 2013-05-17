@@ -1,7 +1,9 @@
 <div class="container">
     <div class="mozaic-widget" data-widget="header"></div>
-    <div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
     <div class="row"><br>
+        <div class="span12"><br>
+            <ul class="mozaic-widget breadcrumb" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></ul>
+        </div>
         <div class="span12"><br>
             <table class="mozaic-widget" data-widget="list" data-params="{{list_params}}"></table>
         </div><br>
