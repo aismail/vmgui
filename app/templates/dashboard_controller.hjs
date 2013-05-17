@@ -1,4 +1,3 @@
 <h1>Dashboard</h1>
+<div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
 <table class="mozaic-widget" data-widget="list" data-params="{{list_params}}"></table>
-
-
