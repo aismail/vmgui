@@ -5,4 +5,8 @@ define ['cs!widget'], (Widget) ->
 
 
         get_submissions: (params) =>
-            @renderLayout(submissions: params.collection.toJSON(), false)
+            url = Utils.current_url() + "#submissions/"
+            params = 
+                url: url
+                submissions: params.collection.toJSON()
+            @renderLayout(params, false)
