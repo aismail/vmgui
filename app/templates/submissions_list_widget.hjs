@@ -2,7 +2,7 @@
     <tr>
         <td><a href ="{{../url}}{{id}}">Submission{{id}}</a></td>
         <td>{{uploaded_at}}</td>
-        <td>{{conent}}</td>
+        <td>{{content}}</td>
         <td>{{graded}}</td>
     <tr>
 {{/each}}
