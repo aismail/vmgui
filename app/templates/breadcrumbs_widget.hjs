@@ -1,4 +1,5 @@
 {{#each output}}
-    <a href="{{url}}">{{name}}</a>
+    <li>
+        <a href="{{url}}">{{name}}</a> <span class="divider">></span>
+    </li>
 {{/each}}
-<br>
