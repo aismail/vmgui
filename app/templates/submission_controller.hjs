@@ -1,2 +1,9 @@
-<div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
-<div class="mozaic-widget" data-widget="submission_details" data-params="{{submissions_params}}"></div>
+<div class = "container">
+    <div class="mozaic-widget" data-widget="header"></div>
+    <div class="mozaic-widget" data-widget="breadcrumbs" data-params="{{breadcrumbs_params}}"></div>
+    <div class="row"><br>
+        <div class="span12"><br>
+             <div class="mozaic-widget" data-widget="submission_details" data-params="{{submissions_params}}"></div>
+        </div><br>
+    </div>
+</div>
